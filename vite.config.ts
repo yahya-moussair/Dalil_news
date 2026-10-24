@@ -16,6 +16,9 @@ export default defineConfig({
                 bunny('Instrument Sans', {
                     weights: [400, 500, 600],
                 }),
+                bunny('IBM Plex Sans Arabic', {
+                    weights: [400, 500, 600, 700],
+                }),
             ],
         }),
         inertia(),
@@ -66,6 +69,7 @@ export default defineConfig({
         ignorePatterns: [
             '.github/**',
             'composer.json',
+            'README.md',
             'resources/js/components/ui/*',
             'resources/views/mail/*',
         ],

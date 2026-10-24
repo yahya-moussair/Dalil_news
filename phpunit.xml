@@ -27,7 +27,16 @@
         <env name="DB_DATABASE" value=":memory:"/>
         <env name="DB_URL" value=""/>
         <env name="MAIL_MAILER" value="array"/>
+        <env name="APP_KEY" value="base64:osDomrTMQ9kqdwdKcZEkvSlppDI129QWF2w6DMPAl/I="/>
         <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="MESSAGING_DRIVER" value="fake"/>
+        <env name="TRANSCRIPTION_DRIVER" value="fake"/>
+        <env name="NORMALIZATION_DRIVER" value="fake"/>
+        <env name="CLUSTERING_DRIVER" value="fake"/>
+        <env name="WHATSAPP_VERIFY_TOKEN" value="test-verify-token"/>
+        <env name="WHATSAPP_APP_SECRET" value="test-app-secret"/>
+        <env name="WHATSAPP_SKIP_SIGNATURE" value="false"/>
+        <env name="TELEGRAM_WEBHOOK_SECRET" value="test-telegram-secret"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>

@@ -1,5 +1,7 @@
 import { Link } from '@inertiajs/react';
 import AppLogoIcon from '@/components/app-logo-icon';
+import { LocaleSwitcher } from '@/components/dalil/locale-switcher';
+import { useLocaleDirection } from '@/hooks/use-locale-direction';
 import { home } from '@/routes';
 import type { AuthLayoutProps } from '@/types';
 
@@ -8,8 +10,13 @@ export default function AuthSimpleLayout({
     title,
     description,
 }: AuthLayoutProps) {
+    useLocaleDirection();
+
     return (
-        <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
+        <div className="relative flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
+            <div className="absolute end-4 top-4">
+                <LocaleSwitcher />
+            </div>
             <div className="w-full max-w-sm">
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-col items-center gap-4">

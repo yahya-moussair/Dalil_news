@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Newsroom;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -35,13 +37,46 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $locale = $request->cookie('locale', 'ar');
+
+        if (! is_string($locale) || ! in_array($locale, ['ar', 'fr', 'en'], true)) {
+            $locale = 'ar';
+        }
+
+        $user = $request->user();
+        $newsroom = null;
+
+        if ($user instanceof User) {
+            $user->unsetRelation('newsroom');
+        }
+
+        if ($user instanceof User && $user->newsroom_id !== null) {
+            $room = Newsroom::query()->find($user->newsroom_id);
+
+            if ($room instanceof Newsroom) {
+                $newsroom = [
+                    'id' => $room->id,
+                    'name' => $room->name,
+                    'city' => $room->city,
+                ];
+            }
+        }
+
         return [
             ...parent::share($request),
             'name' => config('app.name'),
             'auth' => [
-                'user' => $request->user(),
+                'user' => $user,
             ],
+            'newsroom' => $newsroom,
+            'locale' => $locale,
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'demoHint' => app()->environment('local'),
+            'drivers' => [
+                'messaging' => (string) config('dalil.drivers.messaging'),
+                'transcription' => (string) config('dalil.drivers.transcription'),
+                'clustering' => (string) config('dalil.drivers.clustering'),
+            ],
         ];
     }
 }

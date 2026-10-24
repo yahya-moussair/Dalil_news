@@ -1,5 +1,12 @@
+@php
+    $htmlLocale = request()->cookie('locale', 'ar');
+
+    if (! is_string($htmlLocale) || ! in_array($htmlLocale, ['ar', 'fr', 'en'], true)) {
+        $htmlLocale = 'ar';
+    }
+@endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
+<html lang="{{ $htmlLocale }}" dir="{{ $htmlLocale === 'ar' ? 'rtl' : 'ltr' }}" @class(['dark' => ($appearance ?? 'system') == 'dark'])>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -1,7 +1,13 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import {
+    BarChart3,
+    LayoutGrid,
+    MessagesSquare,
+    QrCode,
+    Users,
+} from 'lucide-react';
 import AppLogo from '@/components/app-logo';
-import { NavFooter } from '@/components/nav-footer';
+import { LocaleSwitcher } from '@/components/dalil/locale-switcher';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import {
@@ -13,31 +19,24 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { useI18n } from '@/lib/i18n';
 import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
 
-const mainNavItems: NavItem[] = [
-    {
-        title: 'Dashboard',
-        href: dashboard(),
-        icon: LayoutGrid,
-    },
-];
-
-const footerNavItems: NavItem[] = [
-    {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: FolderGit2,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
-    },
-];
-
 export function AppSidebar() {
+    const { t } = useI18n();
+    const mainNavItems: NavItem[] = [
+        { title: t('navDashboard'), href: '/dashboard', icon: LayoutGrid },
+        {
+            title: t('navCampaigns'),
+            href: '/campaigns',
+            icon: MessagesSquare,
+        },
+        { title: t('navSubscribers'), href: '/contacts', icon: Users },
+        { title: t('navOptIn'), href: '/opt-in', icon: QrCode },
+        { title: t('navMetrics'), href: '/metrics', icon: BarChart3 },
+    ];
+
     return (
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>
@@ -53,11 +52,16 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
+                <NavMain items={mainNavItems} label={t('navGroup')} />
             </SidebarContent>
 
             <SidebarFooter>
-                <NavFooter items={footerNavItems} className="mt-auto" />
+                <div className="px-2 pb-2">
+                    <LocaleSwitcher />
+                </div>
+                <p className="px-2 text-xs text-sidebar-foreground/70">
+                    DW Akademie × LionsGeek
+                </p>
                 <NavUser />
             </SidebarFooter>
         </Sidebar>

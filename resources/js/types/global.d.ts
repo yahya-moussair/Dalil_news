@@ -1,4 +1,5 @@
 import type { Auth } from '@/types/auth';
+import type { Locale } from '@/types/dalil';
 
 declare module 'react' {
     interface InputHTMLAttributes<T> {
@@ -12,6 +13,18 @@ declare module '@inertiajs/core' {
             name: string;
             auth: Auth;
             sidebarOpen: boolean;
+            locale: Locale;
+            newsroom: {
+                id: number;
+                name: string;
+                city: string | null;
+            } | null;
+            demoHint: boolean;
+            drivers: {
+                messaging: string;
+                transcription: string;
+                clustering: string;
+            };
             [key: string]: unknown;
         };
     }

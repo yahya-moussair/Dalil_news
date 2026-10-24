@@ -2,9 +2,13 @@ import { Form, Head, router, usePoll } from '@inertiajs/react';
 import { useMemo, useState } from 'react';
 import { CampaignNav } from '@/components/dalil/campaign-nav';
 import { DemoBanner } from '@/components/dalil/demo-banner';
+import { EmptyState } from '@/components/dalil/empty-state';
+import { Meter } from '@/components/dalil/meter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useCrumbs } from '@/hooks/use-crumbs';
+import { fieldClass } from '@/lib/field';
 import { languageLabel } from '@/lib/format';
 import { useI18n } from '@/lib/i18n';
 import type { Campaign, TopicCard } from '@/types/dalil';
@@ -19,6 +23,11 @@ export default function Topics({
     total: number;
 }) {
     const { t, locale } = useI18n();
+    useCrumbs([
+        { title: t('navDashboard'), href: '/dashboard' },
+        { title: t('campaigns'), href: '/campaigns' },
+        { title: t('topics'), href: `/campaigns/${campaign.id}/topics` },
+    ]);
     const [neighborhood, setNeighborhood] = useState('all');
     const [language, setLanguage] = useState('all');
     usePoll(4000, { only: ['topics', 'total', 'campaign'] });
@@ -82,7 +91,7 @@ export default function Topics({
                         onChange={(event) =>
                             setNeighborhood(event.target.value)
                         }
-                        className="h-9 rounded-md border border-input bg-card px-2 text-sm"
+                        className={`${fieldClass} h-9 w-auto bg-card`}
                     >
                         <option value="all">{t('filterAll')}</option>
                         {neighborhoods.map((name) => (
@@ -94,7 +103,7 @@ export default function Topics({
                     <select
                         value={language}
                         onChange={(event) => setLanguage(event.target.value)}
-                        className="h-9 rounded-md border border-input bg-card px-2 text-sm"
+                        className={`${fieldClass} h-9 w-auto bg-card`}
                     >
                         <option value="all">{t('filterAll')}</option>
                         {languages.map((code) => (
@@ -105,15 +114,13 @@ export default function Topics({
                     </select>
                 </div>
                 {visible.length === 0 ? (
-                    <p className="text-sm text-muted-foreground">
-                        {t('noTopics')}
-                    </p>
+                    <EmptyState>{t('noTopics')}</EmptyState>
                 ) : (
                     <div className="grid gap-4">
                         {visible.map((topic) => (
                             <article
                                 key={topic.id}
-                                className="rounded-2xl border bg-card p-5"
+                                className="rounded-2xl border border-s-4 border-s-primary bg-card p-5 shadow-sm"
                             >
                                 <div className="flex flex-wrap items-start justify-between gap-3">
                                     <div>
@@ -133,13 +140,8 @@ export default function Topics({
                                         </p>
                                     </div>
                                 </div>
-                                <div className="mt-3 h-2 overflow-hidden rounded-full bg-muted">
-                                    <div
-                                        className="h-full bg-[oklch(0.45_0.08_175)]"
-                                        style={{
-                                            width: `${Math.max(topic.share, 2)}%`,
-                                        }}
-                                    />
+                                <div className="mt-3">
+                                    <Meter value={topic.share} />
                                 </div>
                                 {topic.summary ? (
                                     <p className="mt-3 text-sm">
@@ -151,7 +153,10 @@ export default function Topics({
                                         <span>{t('locked')}</span>
                                     ) : null}
                                     {topic.neighborhoods.map((row) => (
-                                        <span key={row.name}>
+                                        <span
+                                            key={row.name}
+                                            className="rounded-full bg-muted px-2 py-0.5"
+                                        >
                                             {row.name} {row.count}
                                         </span>
                                     ))}
@@ -168,9 +173,11 @@ export default function Topics({
                                         {topic.quotes.map((quote) => (
                                             <li
                                                 key={quote.message_id}
-                                                className="rounded-xl bg-muted/60 px-3 py-3"
+                                                className="rounded-xl border bg-muted/40 px-4 py-3"
                                             >
-                                                <p>«{quote.text}»</p>
+                                                <p className="text-base leading-relaxed">
+                                                    «{quote.text}»
+                                                </p>
                                                 <p className="mt-1 text-xs text-muted-foreground">
                                                     {quote.neighborhood}{' '}
                                                     {languageLabel(
@@ -183,7 +190,7 @@ export default function Topics({
                                                 </p>
                                                 {quote.audio_url ? (
                                                     <audio
-                                                        className="mt-2 w-full"
+                                                        className="mt-3 w-full"
                                                         controls
                                                         src={quote.audio_url}
                                                         preload="none"
@@ -224,7 +231,7 @@ export default function Topics({
                                                     topic.summary ?? ''
                                                 }
                                                 rows={2}
-                                                className="rounded-md border border-input px-3 py-2 text-sm"
+                                                className={fieldClass}
                                             />
                                             <Button
                                                 type="submit"
@@ -245,7 +252,7 @@ export default function Topics({
                     <Form
                         action={`/campaigns/${campaign.id}/topics/merge`}
                         method="post"
-                        className="grid gap-3 rounded-2xl border p-4 sm:grid-cols-[1fr_auto_1fr_auto] sm:items-end"
+                        className="grid gap-3 rounded-2xl border bg-card p-4 shadow-sm sm:grid-cols-[1fr_auto_1fr_auto] sm:items-end"
                     >
                         {({ processing }) => (
                             <>
@@ -256,7 +263,7 @@ export default function Topics({
                                     <select
                                         id="source_id"
                                         name="source_id"
-                                        className="h-9 rounded-md border border-input px-2 text-sm"
+                                        className={fieldClass}
                                         defaultValue={topics[1]?.id}
                                     >
                                         {topics.map((topic) => (
@@ -274,7 +281,7 @@ export default function Topics({
                                 </span>
                                 <select
                                     name="target_id"
-                                    className="h-9 rounded-md border border-input px-2 text-sm"
+                                    className={fieldClass}
                                     defaultValue={topics[0]?.id}
                                 >
                                     {topics.map((topic) => (

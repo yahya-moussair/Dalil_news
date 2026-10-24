@@ -1,6 +1,8 @@
 import { Head, useForm, usePoll } from '@inertiajs/react';
 import { CampaignNav } from '@/components/dalil/campaign-nav';
+import { Meter } from '@/components/dalil/meter';
 import { Button } from '@/components/ui/button';
+import { useCrumbs } from '@/hooks/use-crumbs';
 import { useI18n } from '@/lib/i18n';
 import type { Campaign, VoteRow } from '@/types/dalil';
 
@@ -21,6 +23,11 @@ export default function Votes({
     tally: { total: number; rows: VoteRow[] };
 }) {
     const { t } = useI18n();
+    useCrumbs([
+        { title: t('navDashboard'), href: '/dashboard' },
+        { title: t('campaigns'), href: '/campaigns' },
+        { title: t('vote'), href: `/campaigns/${campaign.id}/votes` },
+    ]);
     const form = useForm<{ topic_ids: number[] }>({
         topic_ids: campaign.vote_options.map((option) => option.topic_id),
     });
@@ -45,7 +52,7 @@ export default function Votes({
                 </div>
                 <CampaignNav campaignId={campaign.id} current="vote" />
                 <form
-                    className="grid gap-3 rounded-2xl border bg-card p-4"
+                    className="grid gap-3 rounded-2xl border bg-card p-4 shadow-sm"
                     onSubmit={(event) => {
                         event.preventDefault();
                         form.post(`/campaigns/${campaign.id}/votes`);
@@ -63,7 +70,7 @@ export default function Votes({
                         topics.map((topic) => (
                             <label
                                 key={topic.id}
-                                className="flex items-center justify-between gap-3 rounded-xl border px-3 py-2"
+                                className="flex items-center justify-between gap-3 rounded-xl border px-3 py-2 transition-colors hover:bg-accent has-checked:border-primary has-checked:bg-accent"
                             >
                                 <span className="flex items-center gap-2">
                                     <input
@@ -100,7 +107,7 @@ export default function Votes({
                         {t('sendVote')}
                     </Button>
                 </form>
-                <section className="rounded-2xl border bg-card p-4">
+                <section className="rounded-2xl border bg-card p-4 shadow-sm">
                     <div className="flex items-baseline justify-between">
                         <h2 className="font-medium">{t('results')}</h2>
                         <p className="text-sm text-muted-foreground">
@@ -124,13 +131,8 @@ export default function Votes({
                                             {row.count} · {row.share}%
                                         </span>
                                     </div>
-                                    <div className="mt-1 h-2 overflow-hidden rounded-full bg-muted">
-                                        <div
-                                            className="h-full bg-[oklch(0.45_0.08_175)]"
-                                            style={{
-                                                width: `${Math.max(row.share, 2)}%`,
-                                            }}
-                                        />
+                                    <div className="mt-1">
+                                        <Meter value={row.share} />
                                     </div>
                                 </li>
                             ))}

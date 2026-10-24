@@ -24,7 +24,7 @@ import { dashboard } from '@/routes';
 import type { NavItem } from '@/types';
 
 export function AppSidebar() {
-    const { t } = useI18n();
+    const { t, dir } = useI18n();
     const mainNavItems: NavItem[] = [
         { title: t('navDashboard'), href: '/dashboard', icon: LayoutGrid },
         {
@@ -38,7 +38,11 @@ export function AppSidebar() {
     ];
 
     return (
-        <Sidebar collapsible="icon" variant="inset">
+        <Sidebar
+            collapsible="icon"
+            variant="inset"
+            side={dir === 'rtl' ? 'right' : 'left'}
+        >
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
@@ -60,7 +64,7 @@ export function AppSidebar() {
                     <LocaleSwitcher />
                 </div>
                 <p className="px-2 text-xs text-sidebar-foreground/70">
-                    DW Akademie × LionsGeek
+                    {t('hackathon')}
                 </p>
                 <NavUser />
             </SidebarFooter>

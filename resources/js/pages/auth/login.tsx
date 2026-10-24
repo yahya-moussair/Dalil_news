@@ -23,7 +23,7 @@ export default function Login({ status, canResetPassword }: Props) {
 
     return (
         <>
-            <Head title="Log in" />
+            <Head title={t('logIn')} />
 
             <Form
                 {...store.form()}
@@ -56,10 +56,10 @@ export default function Login({ status, canResetPassword }: Props) {
                                     {canResetPassword && (
                                         <TextLink
                                             href={request()}
-                                            className="ml-auto text-sm"
+                                            className="ms-auto text-sm"
                                             tabIndex={5}
                                         >
-                                            Forgot your password?
+                                            {t('forgotPassword')}
                                         </TextLink>
                                     )}
                                 </div>
@@ -69,7 +69,7 @@ export default function Login({ status, canResetPassword }: Props) {
                                     required
                                     tabIndex={2}
                                     autoComplete="current-password"
-                                    placeholder="Password"
+                                    placeholder={t('password')}
                                 />
                                 <InputError message={errors.password} />
                             </div>
@@ -98,9 +98,9 @@ export default function Login({ status, canResetPassword }: Props) {
                         </div>
 
                         <div className="text-center text-sm text-muted-foreground">
-                            Don't have an account?{' '}
+                            {t('noAccount')}{' '}
                             <TextLink href={register()} tabIndex={5}>
-                                Sign up
+                                {t('signUp')}
                             </TextLink>
                         </div>
                     </>
@@ -114,7 +114,7 @@ export default function Login({ status, canResetPassword }: Props) {
             )}
 
             {demoHint ? (
-                <div className="rounded-xl border bg-muted/50 p-3 text-sm">
+                <div className="rounded-2xl border bg-muted/50 p-4 text-sm">
                     <p className="font-medium">{t('demoLogin')}</p>
                     <p className="mt-1 text-muted-foreground">
                         hafsa@casahay.test

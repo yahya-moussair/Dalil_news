@@ -2,7 +2,10 @@ import { Form, Head, usePoll } from '@inertiajs/react';
 import { useState } from 'react';
 import { CampaignNav } from '@/components/dalil/campaign-nav';
 import { DemoBanner } from '@/components/dalil/demo-banner';
+import { EmptyState } from '@/components/dalil/empty-state';
 import { Button } from '@/components/ui/button';
+import { useCrumbs } from '@/hooks/use-crumbs';
+import { fieldClass } from '@/lib/field';
 import { formatWhen, languageLabel } from '@/lib/format';
 import { useI18n } from '@/lib/i18n';
 import type { Campaign, ReplyRow } from '@/types/dalil';
@@ -15,6 +18,11 @@ export default function Inbox({
     replies: ReplyRow[];
 }) {
     const { t, locale } = useI18n();
+    useCrumbs([
+        { title: t('navDashboard'), href: '/dashboard' },
+        { title: t('campaigns'), href: '/campaigns' },
+        { title: t('inbox'), href: `/campaigns/${campaign.id}/inbox` },
+    ]);
     const [editing, setEditing] = useState<number | null>(null);
     usePoll(4000, { only: ['replies', 'campaign'] });
 
@@ -31,22 +39,21 @@ export default function Inbox({
                             {t('inboxLead')}
                         </p>
                     </div>
-                    <span className="rounded-full bg-emerald-700 px-3 py-1 text-xs text-white">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[oklch(0.4_0.08_155)] px-3 py-1 text-xs font-medium text-white">
+                        <span className="size-1.5 rounded-full bg-[oklch(0.86_0.12_145)]" />
                         {t('live')}
                     </span>
                 </div>
                 {campaign.has_test_data ? <DemoBanner /> : null}
                 <CampaignNav campaignId={campaign.id} current="inbox" />
                 {replies.length === 0 ? (
-                    <p className="text-sm text-muted-foreground">
-                        {t('noReplies')}
-                    </p>
+                    <EmptyState>{t('noReplies')}</EmptyState>
                 ) : (
                     <div className="flex flex-col gap-3">
                         {replies.map((reply) => (
                             <article
                                 key={reply.id}
-                                className="rounded-2xl border bg-card p-4"
+                                className="rounded-2xl border bg-card p-4 shadow-sm"
                             >
                                 <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                                     <span>
@@ -69,7 +76,7 @@ export default function Inbox({
                                             : t('text')}
                                     </span>
                                     {reply.is_test_data ? (
-                                        <span className="text-amber-800">
+                                        <span className="rounded-full bg-[oklch(0.94_0.04_85)] px-2 py-0.5 text-[oklch(0.35_0.06_60)]">
                                             {t('demoData')}
                                         </span>
                                     ) : null}
@@ -77,7 +84,7 @@ export default function Inbox({
                                         <span>{t('edited')}</span>
                                     ) : null}
                                 </div>
-                                <p className="mt-2 text-base leading-relaxed">
+                                <p className="mt-3 text-base leading-relaxed">
                                     {reply.body || '—'}
                                 </p>
                                 {reply.summary ? (
@@ -114,7 +121,7 @@ export default function Inbox({
                                                     defaultValue={reply.body}
                                                     rows={3}
                                                     required
-                                                    className="rounded-md border border-input px-3 py-2 text-sm"
+                                                    className={fieldClass}
                                                 />
                                                 <Button
                                                     type="submit"

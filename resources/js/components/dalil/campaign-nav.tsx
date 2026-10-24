@@ -45,8 +45,8 @@ export function CampaignNav({
                     href={item.href}
                     className={
                         item.key === current
-                            ? 'rounded-full bg-primary px-3 py-1 text-sm text-primary-foreground'
-                            : 'rounded-full border px-3 py-1 text-sm text-muted-foreground hover:text-foreground'
+                            ? 'rounded-full bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground shadow-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none'
+                            : 'rounded-full border bg-card px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none'
                     }
                 >
                     {t(item.label)}

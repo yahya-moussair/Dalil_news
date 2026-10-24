@@ -1,13 +1,16 @@
 import { Head, router, useForm } from '@inertiajs/react';
 import { CampaignNav } from '@/components/dalil/campaign-nav';
 import { DemoBanner } from '@/components/dalil/demo-banner';
+import { Stat } from '@/components/dalil/stat';
 import { StatusPill } from '@/components/dalil/status-pill';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useCrumbs } from '@/hooks/use-crumbs';
+import { fieldClass } from '@/lib/field';
 import { formatWhen, money } from '@/lib/format';
-import { useI18n } from '@/lib/i18n';
+import { useI18n, type CopyKey } from '@/lib/i18n';
 import type { BroadcastRow, Campaign } from '@/types/dalil';
 
 type Props = {
@@ -26,6 +29,11 @@ export default function CampaignShow({
     drivers,
 }: Props) {
     const { t, locale } = useI18n();
+    useCrumbs([
+        { title: t('navDashboard'), href: '/dashboard' },
+        { title: t('campaigns'), href: '/campaigns' },
+        { title: t('overview'), href: `/campaigns/${campaign.id}` },
+    ]);
     const metrics = campaign.metrics;
     const testSend = useForm({ phone: '' });
     const simulate = useForm({
@@ -83,17 +91,7 @@ export default function CampaignShow({
                 <CampaignNav campaignId={campaign.id} current="overview" />
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {stats.map(([label, value]) => (
-                        <div
-                            key={label}
-                            className="rounded-2xl border bg-card px-4 py-4"
-                        >
-                            <p className="text-sm text-muted-foreground">
-                                {label}
-                            </p>
-                            <p className="mt-1 text-2xl font-semibold">
-                                {value}
-                            </p>
-                        </div>
+                        <Stat key={label} label={label} value={value} />
                     ))}
                 </div>
                 <section className="rounded-2xl border bg-card p-4">
@@ -128,7 +126,9 @@ export default function CampaignShow({
                                 <tbody>
                                     {broadcasts.map((row) => (
                                         <tr key={row.id} className="border-t">
-                                            <td className="py-2">{row.kind}</td>
+                                            <td className="py-2">
+                                                {kindLabel(row.kind, t)}
+                                            </td>
                                             <td>{row.sent}</td>
                                             <td>{row.delivered}</td>
                                             <td>{row.read}</td>
@@ -151,7 +151,7 @@ export default function CampaignShow({
                 </section>
                 <div className="grid gap-4 lg:grid-cols-2">
                     <form
-                        className="grid gap-3 rounded-2xl border bg-card p-4"
+                        className="grid gap-3 rounded-2xl border bg-card p-4 shadow-sm"
                         onSubmit={(event) => {
                             event.preventDefault();
                             testSend.post(
@@ -183,7 +183,7 @@ export default function CampaignShow({
                     </form>
                     {canSimulate ? (
                         <form
-                            className="grid gap-3 rounded-2xl border bg-card p-4"
+                            className="grid gap-3 rounded-2xl border bg-card p-4 shadow-sm"
                             onSubmit={(event) => {
                                 event.preventDefault();
                                 simulate.post(
@@ -204,7 +204,7 @@ export default function CampaignShow({
                                     simulate.setData('body', event.target.value)
                                 }
                                 rows={3}
-                                className="rounded-md border border-input px-3 py-2 text-sm"
+                                className={fieldClass}
                             />
                             <div className="grid grid-cols-2 gap-2">
                                 <select
@@ -215,7 +215,7 @@ export default function CampaignShow({
                                             event.target.value,
                                         )
                                     }
-                                    className="h-9 rounded-md border border-input px-2 text-sm"
+                                    className={fieldClass}
                                 >
                                     <option value="text">{t('text')}</option>
                                     <option value="audio">{t('audio')}</option>
@@ -228,7 +228,7 @@ export default function CampaignShow({
                                             event.target.value,
                                         )
                                     }
-                                    className="h-9 rounded-md border border-input px-2 text-sm"
+                                    className={fieldClass}
                                 >
                                     {neighborhoods.map((name) => (
                                         <option key={name} value={name}>
@@ -250,6 +250,22 @@ export default function CampaignShow({
             </div>
         </>
     );
+}
+
+function kindLabel(kind: string, t: (key: CopyKey) => string): string {
+    if (kind === 'question') {
+        return t('kindQuestion');
+    }
+
+    if (kind === 'vote') {
+        return t('kindVote');
+    }
+
+    if (kind === 'reply_back') {
+        return t('kindReplyBack');
+    }
+
+    return kind;
 }
 
 CampaignShow.layout = {

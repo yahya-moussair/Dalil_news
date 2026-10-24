@@ -1,5 +1,8 @@
 import { Head, Link, router } from '@inertiajs/react';
+import { PageHeader } from '@/components/dalil/page-header';
 import { Button } from '@/components/ui/button';
+import { useCrumbs } from '@/hooks/use-crumbs';
+import { fieldClass } from '@/lib/field';
 import { formatWhen, languageLabel } from '@/lib/format';
 import { useI18n } from '@/lib/i18n';
 import type { ContactRow, Paginator } from '@/types/dalil';
@@ -16,29 +19,29 @@ export default function Contacts({
     counts: { subscribed: number; opted_out: number };
 }) {
     const { t, locale } = useI18n();
+    useCrumbs([
+        { title: t('navDashboard'), href: '/dashboard' },
+        { title: t('subscribers'), href: '/contacts' },
+    ]);
 
     return (
         <>
             <Head title={t('subscribers')} />
             <div className="flex flex-col gap-6 p-4 md:p-6">
-                <div className="flex flex-wrap items-end justify-between gap-3">
-                    <div>
-                        <h1 className="text-2xl font-semibold">
-                            {t('subscribers')}
-                        </h1>
-                        <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-                            {t('contactsLead')}
-                        </p>
-                    </div>
-                    <div className="flex gap-2">
-                        <Button variant="outline" asChild>
-                            <Link href="/opt-in">{t('navOptIn')}</Link>
-                        </Button>
-                        <Button variant="outline" asChild>
-                            <a href="/contacts/export">{t('export')}</a>
-                        </Button>
-                    </div>
-                </div>
+                <PageHeader
+                    title={t('subscribers')}
+                    lead={t('contactsLead')}
+                    actions={
+                        <>
+                            <Button variant="outline" asChild>
+                                <Link href="/opt-in">{t('navOptIn')}</Link>
+                            </Button>
+                            <Button variant="outline" asChild>
+                                <a href="/contacts/export">{t('export')}</a>
+                            </Button>
+                        </>
+                    }
+                />
                 <p className="text-sm">
                     {t('subscribed')}: {counts.subscribed} · {t('optedOut')}:{' '}
                     {counts.opted_out}
@@ -54,7 +57,7 @@ export default function Contacts({
                                 { preserveState: true, preserveScroll: true },
                             )
                         }
-                        className="h-9 rounded-md border border-input bg-card px-2"
+                        className={`${fieldClass} h-9 w-auto bg-card`}
                     >
                         <option value="">{t('filterAll')}</option>
                         {neighborhoods.map((name) => (
@@ -64,7 +67,7 @@ export default function Contacts({
                         ))}
                     </select>
                 </label>
-                <div className="overflow-x-auto rounded-2xl border">
+                <div className="overflow-x-auto rounded-2xl border bg-card shadow-sm">
                     <table className="w-full text-sm">
                         <thead className="bg-muted/50 text-muted-foreground">
                             <tr>
@@ -94,7 +97,7 @@ export default function Contacts({
                                     <td className="px-3 py-3 font-mono text-xs">
                                         {contact.masked_phone}
                                         {contact.is_test_data ? (
-                                            <span className="ms-2 font-sans text-amber-800">
+                                            <span className="ms-2 rounded-full bg-[oklch(0.94_0.04_85)] px-2 py-0.5 font-sans text-[oklch(0.35_0.06_60)]">
                                                 {t('demoData')}
                                             </span>
                                         ) : null}
@@ -159,19 +162,35 @@ export default function Contacts({
                                 preserveScroll
                                 className={
                                     link.active
-                                        ? 'rounded-md bg-primary px-3 py-1 text-sm text-primary-foreground'
-                                        : 'rounded-md border px-3 py-1 text-sm'
+                                        ? 'rounded-full bg-primary px-3 py-1 text-sm text-primary-foreground'
+                                        : 'rounded-full border bg-card px-3 py-1 text-sm hover:bg-accent'
                                 }
                             >
-                                {link.label
-                                    .replace('&laquo; ', '')
-                                    .replace(' &raquo;', '')}
+                                {pageLabel(link.label, t)}
                             </Link>
                         ))}
                 </div>
             </div>
         </>
     );
+}
+
+function pageLabel(label: string, t: ReturnType<typeof useI18n>['t']): string {
+    const plain = label
+        .replaceAll('&laquo;', '')
+        .replaceAll('&raquo;', '')
+        .replaceAll(/<[^>]+>/g, '')
+        .trim();
+
+    if (plain === 'Previous' || plain === 'pagination.previous') {
+        return t('previous');
+    }
+
+    if (plain === 'Next' || plain === 'pagination.next') {
+        return t('next');
+    }
+
+    return plain;
 }
 
 Contacts.layout = {

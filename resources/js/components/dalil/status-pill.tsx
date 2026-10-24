@@ -16,10 +16,12 @@ export function StatusPill({ status }: { status: CampaignStatus }) {
             variant={status === 'draft' ? 'secondary' : 'default'}
             className={
                 status === 'voting'
-                    ? 'bg-amber-700 text-white'
-                    : status === 'closed'
-                      ? 'bg-stone-700 text-white'
-                      : undefined
+                    ? 'border-transparent bg-[oklch(0.82_0.12_85)] text-[oklch(0.25_0.04_60)]'
+                    : status === 'sent'
+                      ? 'border-transparent bg-[oklch(0.4_0.07_175)] text-white'
+                      : status === 'closed'
+                        ? 'border-transparent bg-[oklch(0.45_0.02_175)] text-white'
+                        : undefined
             }
         >
             {label}

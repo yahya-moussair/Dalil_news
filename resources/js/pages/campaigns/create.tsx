@@ -1,8 +1,11 @@
 import { Form, Head, Link } from '@inertiajs/react';
+import { PageHeader } from '@/components/dalil/page-header';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useCrumbs } from '@/hooks/use-crumbs';
+import { fieldClass } from '@/lib/field';
 import { useI18n } from '@/lib/i18n';
 
 export default function CreateCampaign({
@@ -13,22 +16,21 @@ export default function CreateCampaign({
     newsroomName: string;
 }) {
     const { t } = useI18n();
+    useCrumbs([
+        { title: t('navDashboard'), href: '/dashboard' },
+        { title: t('campaigns'), href: '/campaigns' },
+        { title: t('newQuestion'), href: '/campaigns/create' },
+    ]);
 
     return (
         <>
             <Head title={t('newQuestion')} />
             <div className="mx-auto flex w-full max-w-2xl flex-col gap-6 p-4 md:p-6">
-                <div>
-                    <p className="text-sm text-muted-foreground">
-                        {newsroomName}
-                    </p>
-                    <h1 className="text-2xl font-semibold">
-                        {t('newQuestion')}
-                    </h1>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                        {t('createLead')}
-                    </p>
-                </div>
+                <PageHeader
+                    kicker={newsroomName}
+                    title={t('newQuestion')}
+                    lead={t('createLead')}
+                />
                 <Form action="/campaigns" method="post" className="grid gap-5">
                     {({ errors, processing }) => (
                         <>
@@ -54,7 +56,7 @@ export default function CreateCampaign({
                                     rows={4}
                                     maxLength={1000}
                                     defaultValue="ما هو أكبر مشكل كتعيشوه فالحي ديالكم؟"
-                                    className="flex min-h-24 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                                    className={`${fieldClass} min-h-24`}
                                 />
                                 <InputError message={errors.question} />
                             </div>
@@ -77,7 +79,7 @@ export default function CreateCampaign({
                                         id="template_lang"
                                         name="template_lang"
                                         defaultValue="ar"
-                                        className="h-9 rounded-md border border-input bg-background px-3 text-sm"
+                                        className={fieldClass}
                                     >
                                         <option value="ar">ar</option>
                                         <option value="fr">fr</option>

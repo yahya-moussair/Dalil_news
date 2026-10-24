@@ -1,4 +1,6 @@
 import { Head } from '@inertiajs/react';
+import { PageHeader } from '@/components/dalil/page-header';
+import { useCrumbs } from '@/hooks/use-crumbs';
 import { useI18n } from '@/lib/i18n';
 
 export default function OptIn({
@@ -13,18 +15,17 @@ export default function OptIn({
     consent_version: string;
 }) {
     const { t } = useI18n();
+    useCrumbs([
+        { title: t('navDashboard'), href: '/dashboard' },
+        { title: t('navOptIn'), href: '/opt-in' },
+    ]);
 
     return (
         <>
             <Head title={t('optInTitle')} />
             <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 p-4 md:p-6">
-                <div>
-                    <p className="text-sm text-muted-foreground">{newsroom}</p>
-                    <h1 className="text-2xl font-semibold">
-                        {t('optInTitle')}
-                    </h1>
-                </div>
-                <div className="grid items-center gap-6 rounded-3xl border bg-card p-6 md:grid-cols-[220px_1fr]">
+                <PageHeader kicker={newsroom} title={t('optInTitle')} />
+                <div className="grid items-center gap-6 rounded-3xl border bg-card p-6 shadow-sm md:grid-cols-[220px_1fr]">
                     {link ? (
                         <img
                             src="/opt-in/qr.svg"

@@ -1,7 +1,11 @@
 import { Head, Link, usePage } from '@inertiajs/react';
 import { DemoBanner } from '@/components/dalil/demo-banner';
+import { EmptyState } from '@/components/dalil/empty-state';
+import { PageHeader } from '@/components/dalil/page-header';
+import { Stat } from '@/components/dalil/stat';
 import { StatusPill } from '@/components/dalil/status-pill';
 import { Button } from '@/components/ui/button';
+import { useCrumbs } from '@/hooks/use-crumbs';
 import { useI18n } from '@/lib/i18n';
 import type { Campaign } from '@/types/dalil';
 
@@ -22,6 +26,7 @@ type Props = {
 
 export default function Dashboard({ stats, campaigns, drivers }: Props) {
     const { t } = useI18n();
+    useCrumbs([{ title: t('navDashboard'), href: '/dashboard' }]);
     const { newsroom: room } = usePage().props;
     const fake = Object.values(drivers).some((driver) => driver === 'fake');
     const demo = campaigns.some((campaign) => campaign.has_test_data);
@@ -37,23 +42,22 @@ export default function Dashboard({ stats, campaigns, drivers }: Props) {
         <>
             <Head title={t('navDashboard')} />
             <div className="flex flex-col gap-6 p-4 md:p-6">
-                <div className="flex flex-wrap items-end justify-between gap-3">
-                    <div>
-                        <p className="text-sm text-muted-foreground">
-                            {room?.name}
-                            {room?.city ? ` · ${room.city}` : ''}
-                        </p>
-                        <h1 className="text-2xl font-semibold tracking-tight">
-                            {t('navDashboard')}
-                        </h1>
-                        <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-                            {t('dashboardLead')}
-                        </p>
-                    </div>
-                    <Button asChild>
-                        <Link href="/campaigns/create">{t('newQuestion')}</Link>
-                    </Button>
-                </div>
+                <PageHeader
+                    kicker={
+                        room
+                            ? `${room.name}${room.city ? ` · ${room.city}` : ''}`
+                            : undefined
+                    }
+                    title={t('navDashboard')}
+                    lead={t('dashboardLead')}
+                    actions={
+                        <Button asChild>
+                            <Link href="/campaigns/create">
+                                {t('newQuestion')}
+                            </Link>
+                        </Button>
+                    }
+                />
                 {demo ? <DemoBanner /> : null}
                 {fake ? (
                     <p className="text-sm text-muted-foreground">
@@ -63,30 +67,18 @@ export default function Dashboard({ stats, campaigns, drivers }: Props) {
                 ) : null}
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {cards.map(([label, value]) => (
-                        <div
-                            key={label}
-                            className="rounded-2xl border bg-card px-4 py-5"
-                        >
-                            <p className="text-sm text-muted-foreground">
-                                {label}
-                            </p>
-                            <p className="mt-2 text-3xl font-semibold">
-                                {value}
-                            </p>
-                        </div>
+                        <Stat key={label} label={label} value={value} />
                     ))}
                 </div>
                 <div className="flex flex-col gap-3">
                     {campaigns.length === 0 ? (
-                        <p className="text-sm text-muted-foreground">
-                            {t('noCampaigns')}
-                        </p>
+                        <EmptyState>{t('noCampaigns')}</EmptyState>
                     ) : (
                         campaigns.map((campaign) => (
                             <Link
                                 key={campaign.id}
                                 href={`/campaigns/${campaign.id}`}
-                                className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border bg-card px-4 py-4 hover:bg-accent"
+                                className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border bg-card px-4 py-4 shadow-sm transition-colors hover:border-primary/30 hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
                             >
                                 <div>
                                     <div className="flex items-center gap-2">

@@ -1,5 +1,9 @@
 import { Head, Link } from '@inertiajs/react';
+import { Meter } from '@/components/dalil/meter';
+import { PageHeader } from '@/components/dalil/page-header';
+import { Stat } from '@/components/dalil/stat';
 import { StatusPill } from '@/components/dalil/status-pill';
+import { useCrumbs } from '@/hooks/use-crumbs';
 import { useI18n } from '@/lib/i18n';
 import type { Campaign } from '@/types/dalil';
 
@@ -21,6 +25,10 @@ export default function Metrics({
     };
 }) {
     const { t } = useI18n();
+    useCrumbs([
+        { title: t('navDashboard'), href: '/dashboard' },
+        { title: t('impact'), href: '/metrics' },
+    ]);
     const max = Math.max(...neighborhoods.map((row) => row.total), 1);
     const cards = [
         [t('subscribers'), overview.subscribers],
@@ -34,28 +42,13 @@ export default function Metrics({
         <>
             <Head title={t('impact')} />
             <div className="flex flex-col gap-6 p-4 md:p-6">
-                <div>
-                    <h1 className="text-2xl font-semibold">{t('impact')}</h1>
-                    <p className="mt-1 text-sm text-muted-foreground">
-                        {t('metricsLead')}
-                    </p>
-                </div>
+                <PageHeader title={t('impact')} lead={t('metricsLead')} />
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                     {cards.map(([label, value]) => (
-                        <div
-                            key={label}
-                            className="rounded-2xl border bg-card px-4 py-4"
-                        >
-                            <p className="text-sm text-muted-foreground">
-                                {label}
-                            </p>
-                            <p className="mt-1 text-2xl font-semibold">
-                                {value}
-                            </p>
-                        </div>
+                        <Stat key={label} label={label} value={value} />
                     ))}
                 </div>
-                <section className="rounded-2xl border bg-card p-4">
+                <section className="rounded-2xl border bg-card p-5 shadow-sm">
                     <h2 className="font-medium">{t('neighborhoods')}</h2>
                     <ul className="mt-4 flex flex-col gap-3">
                         {neighborhoods.map((row) => (
@@ -64,19 +57,14 @@ export default function Metrics({
                                     <span>{row.name}</span>
                                     <span>{row.total}</span>
                                 </div>
-                                <div className="mt-1 h-2 overflow-hidden rounded-full bg-muted">
-                                    <div
-                                        className="h-full bg-[oklch(0.45_0.08_175)]"
-                                        style={{
-                                            width: `${Math.round((row.total / max) * 100)}%`,
-                                        }}
-                                    />
+                                <div className="mt-1">
+                                    <Meter value={row.total} max={max} />
                                 </div>
                             </li>
                         ))}
                     </ul>
                 </section>
-                <section className="overflow-x-auto rounded-2xl border">
+                <section className="overflow-x-auto rounded-2xl border bg-card shadow-sm">
                     <table className="w-full text-sm">
                         <thead className="bg-muted/40 text-muted-foreground">
                             <tr>

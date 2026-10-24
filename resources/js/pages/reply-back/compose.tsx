@@ -5,6 +5,8 @@ import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useCrumbs } from '@/hooks/use-crumbs';
+import { fieldClass } from '@/lib/field';
 import { money } from '@/lib/format';
 import { useI18n } from '@/lib/i18n';
 import type { Campaign } from '@/types/dalil';
@@ -20,6 +22,11 @@ export default function ReplyBack({
     rate: number;
 }) {
     const { t, locale } = useI18n();
+    useCrumbs([
+        { title: t('navDashboard'), href: '/dashboard' },
+        { title: t('campaigns'), href: '/campaigns' },
+        { title: t('article'), href: `/campaigns/${campaign.id}/reply-back` },
+    ]);
     const [title, setTitle] = useState(campaign.article_title ?? '');
     const [url, setUrl] = useState(campaign.article_url ?? 'https://');
     const [note, setNote] = useState(campaign.article_note ?? '');
@@ -28,7 +35,7 @@ export default function ReplyBack({
         title || t('articleTitle'),
         note,
         url,
-        'شكراً على مشاركتكم.',
+        t('thanksShare'),
         t('youAsked'),
     ]
         .filter((line) => line.trim() !== '')
@@ -107,11 +114,11 @@ export default function ReplyBack({
                                         setNote(event.target.value)
                                     }
                                     rows={3}
-                                    className="rounded-md border border-input px-3 py-2 text-sm"
+                                    className={fieldClass}
                                 />
                             </div>
-                            <div className="rounded-2xl bg-[oklch(0.32_0.05_175)] p-4 text-sm whitespace-pre-wrap text-[oklch(0.97_0.01_90)]">
-                                <p className="mb-2 text-xs text-[oklch(0.82_0.08_85)]">
+                            <div className="rounded-[1.6rem] border-8 border-[oklch(0.25_0.03_175)] bg-[oklch(0.94_0.02_150)] p-4 text-sm whitespace-pre-wrap text-foreground shadow-sm">
+                                <p className="mb-2 text-xs font-medium text-muted-foreground">
                                     {t('preview')}
                                 </p>
                                 {preview}

@@ -161,9 +161,9 @@ const en = {
     whoNewsrooms: 'Newsrooms',
     whoNewsroomsBody:
         'A listening desk for reporters who want the neighborhood’s wording, not a pollster’s summary.',
-    whoFunders: 'NGOs and funders',
+    whoFunders: 'Funders',
     whoFundersBody:
-        'See reach, voice notes, and whether the article went back to the people who spoke.',
+        'See whether a newsroom reached people, heard voice notes, and sent the finished article back to those who took part.',
     privacyTitle: 'Consent, then listening',
     mockWaTitle: 'On the reader’s phone',
     mockReader: 'Reader',
@@ -181,9 +181,9 @@ const en = {
     mockTopicC: 'Waste',
     mockTopicCSub: 'Déchets',
     mockTopicCQuote: 'The bins overflow and the smell stays in the alley.',
-    footerCta: 'Open the listening desk',
+    footerCta: 'Bring the answer back',
     footerCtaBody:
-        'Start from the seeded Casablanca newsroom, or sign in and write the first question.',
+        'Sign in and write one question. It goes only to readers who opted in.',
     loginTitle: 'Log in to the desk',
     loginLead: 'You asked, we answered.',
     forgotPassword: 'Forgot your password?',
@@ -234,6 +234,134 @@ const en = {
     deleteConfirmBody:
         'Once the account is deleted, its data is removed for good. Enter your password to confirm.',
     cancel: 'Cancel',
+    navHow: 'Path',
+    navVoices: 'Voices',
+    navTrust: 'Trust',
+    navFor: 'For whom',
+    menuOpen: 'Menu',
+    menuClose: 'Close menu',
+    skipToContent: 'Skip to content',
+    welcomeSecondary: 'See the path',
+    sampleKicker: 'Illustrative sample',
+    sampleNote:
+        'Illustrative examples created to demonstrate how community concerns can be developed into journalistic topics. These are not real reader submissions or research findings.',
+    composedExamplesTitle: 'Composed examples',
+    composedExamplesNote:
+        'Illustrative examples created to demonstrate how community concerns can be developed into journalistic topics. These are not real reader submissions or research findings.',
+    sampleVoiceLabel: 'Illustrative scenario · Audio dispatch',
+    sampleRetailLabel: 'Illustrative scenario · Local retail',
+    sampleTextLabel: 'Illustrative scenario · Written dispatch',
+    sampleMetricLabel: 'Simulated count',
+    storyEyebrow: 'Composed examples',
+    storyTitle: 'Composed examples',
+    storyLead:
+        'Demonstrating how community responses cluster into structured topics with anonymized excerpts and clear editorial prioritization.',
+    mockQuestion: 'What is missing in your neighborhood this week?',
+    mockDarija: 'الما مقطوع فسيدي مومن من الصباح.',
+    mockArabizi: 'l-ma m9to3 f zen9tna mn sbah',
+    mockFrenchLine: 'L’eau est coupée depuis ce matin.',
+    voicesTitle: 'Separate messages, one shared concern',
+    voicesLead:
+        'The same worry arrives in Darija, Arabizi, and French. The desk reads them as one topic, with a count and a share of the replies.',
+    voiceTagDarija: 'Darija',
+    voiceTagArabizi: 'Arabizi',
+    voiceTagFrench: 'French',
+    trustOptIn: 'They choose to take part',
+    trustOptInBody:
+        'A reader joins by sending JOIN. STOP, وقف, or arrêt leaves at once. The newsroom only writes to people who agreed.',
+    trustQuotes: 'A quote, not a name',
+    trustQuotesBody:
+        'The desk shows what was said and which neighborhood it came from. Phone numbers stay masked. The quotation is anonymous.',
+    trustLawTitle: 'Moroccan law 09-08',
+    trustLawBody:
+        'The time of consent is stored under Moroccan law 09-08. This page describes that practice. It is not a legal certification.',
+    whoNgo: 'Civil society',
+    whoNgoBody:
+        'Organizations that already speak with a community can ask one clear question and see which concerns repeat, in the community’s own words.',
+    heroPhotoCaption:
+        'Casablanca · Everyday life in a neighborhood where community concerns start with a voice note.',
+    heroPhotoBadge: 'Everyday life · Casablanca',
+    heroAnnotation: 'From street conversations to published investigations.',
+    storyPhotoCaption:
+        'Illustrative scenario — Audio dispatch concerning municipal service inquiries.',
+    storyShopCaption:
+        'Illustrative scenario — Neighborhood commerce discussion on utility disruptions.',
+    voicesConvergenceLabel:
+        'Separate messages converge into one verified priority',
+    communityVoicesSubtitle:
+        'Real people. Real concerns. Journalism that listens.',
+    voicesCardLocation: 'Illustrative editorial scenario',
+    voicesCardTime: 'Demonstration workflow',
+    humanMosaicTitle: 'The Human Mosaic',
+    humanMosaicCaption:
+        'The Human Mosaic: an editorial composition of Moroccan faces reflecting the diverse everyday voices gathered by Dalil News.',
+    heroEyebrow: 'THE HUMAN MOSAIC',
+    heroHeadlineLine1: 'A thousand voices.',
+    heroHeadlineLine2: 'One shared story.',
+    brandStatementAr: 'سألتم، فأجبنا',
+    tagline: 'Real people. Real concerns. Journalism that listens.',
+    heroBody:
+        'Dalil News connects the concerns people share on WhatsApp with the journalists who can investigate them — across Darija, Arabizi, Arabic, and French.',
+    heroCtaPrimary: 'Start a question',
+    heroCtaSecondary: 'How it works',
+    howIntro2:
+        'Dalil News helps newsrooms listen at scale, recognize shared concerns, and identify the questions worth investigating. The process begins with the community and continues until the reporting brings something back.',
+    step1Title: 'Ask',
+    step1Body:
+        'A newsroom poses a question to readers who have chosen to participate.',
+    step2Title: 'Listen',
+    step2Body:
+        'People respond in their own words, through text or voice notes.',
+    step3Title: 'Understand',
+    step3Body:
+        'Similar concerns are brought together across languages and expressions.',
+    step4Title: 'Prioritize',
+    step4Body:
+        'The community can help signal which issues deserve closer attention.',
+    step5Title: 'Investigate & answer',
+    step5Body:
+        'Journalists verify the facts, report the story, and share the published work.',
+    examplesTitle: 'Different words. A shared concern.',
+    examplesIntro:
+        'A concern can sound different in Darija, appear in Arabizi, or be expressed in French. What matters is understanding when those voices point to the same underlying issue.',
+    examplesDisclosure:
+        'The following is an illustrative example of how a newsroom might connect similar responses to a topic for investigation. It is not a real reader submission or a research finding.',
+    examplesBadge: 'ILLUSTRATIVE EXAMPLE · NOT REAL SUBMISSIONS',
+    examplesTopic: 'Water cuts in the neighborhood',
+    examplesOutcomeLabel: 'One concern to investigate',
+    examplesOutcomeText:
+        'A newsroom could investigate the reported water interruption, verify what happened, and seek answers from the relevant service provider.',
+    trustSectionTitle: 'Listening means respecting the people who speak.',
+    trustIntro:
+        'A community’s voice is not just data. It belongs to a person who deserves to know how their contribution will be used. Dalil News is built around voluntary participation, clear choices, and responsible handling of responses. The goal is to help journalism understand communities without compromising the dignity or privacy of the people within them.',
+    trustPrinciple1Title: 'Participation by choice',
+    trustPrinciple1Body:
+        'Readers choose to take part and can opt out using the supported instructions (JOIN, STOP, وقف, arrêt).',
+    trustPrinciple2Title: 'Privacy with purpose',
+    trustPrinciple2Body:
+        'Personal identifiers should be protected, and only the information necessary for the defined purpose should be used.',
+    trustPrinciple3Title: 'Reporting, not assumptions',
+    trustPrinciple3Body:
+        'Community responses can point journalists toward a story. They do not replace verification, evidence, or independent reporting.',
+    audienceNewsroomsTitle: 'For newsrooms — Listen beyond the headlines.',
+    audienceNewsroomsBody:
+        'Discover recurring concerns, understand how people describe them, and find stronger starting points for reporting.',
+    audienceCivicTitle:
+        'For civil society — Understand what communities raise.',
+    audienceCivicBody:
+        'Structure community feedback to help identify issues that may deserve attention, where the platform supports that work.',
+    audienceFundersTitle:
+        'For media supporters — Make listening more meaningful.',
+    audienceFundersBody:
+        'Understand how community engagement can inform reporting and help newsrooms close the loop with their audiences.',
+    closeEyebrow: 'THE HUMAN MOSAIC',
+    closeHeadline: 'A story begins when someone listens.',
+    closeBody:
+        'Ask a better question. Hear what matters. Follow the story toward an answer.',
+    closeBrandStatement: 'سألتم، فأجبنا',
+    closeCtaPrimary: 'Open the desk',
+    closeCtaSecondary: 'Sign in',
+    footerBrand: 'Dalil News · The Human Mosaic · Media Builders × LionsGeek',
 } as const;
 
 export type CopyKey = keyof typeof en;
@@ -386,9 +514,9 @@ const ar: Record<CopyKey, string> = {
     whoTitle: 'لمن هذا',
     whoNewsrooms: 'غرف الأخبار',
     whoNewsroomsBody: 'مكتب استماع للصحفي الذي يريد كلام الحي، لا ملخص استطلاع.',
-    whoFunders: 'الجمعيات والمموّلون',
+    whoFunders: 'المموّلون',
     whoFundersBody:
-        'شاهدوا الوصول والرسائل الصوتية، وهل رجع المقال إلى من تكلم.',
+        'راقبوا هل وصلت غرفة الأخبار إلى الناس، وهل سمعت الرسائل الصوتية، وهل عاد المقال إلى من شارك.',
     privacyTitle: 'الموافقة أولاً، ثم الاستماع',
     mockWaTitle: 'على هاتف القارئ',
     mockReader: 'قارئ',
@@ -406,9 +534,8 @@ const ar: Record<CopyKey, string> = {
     mockTopicC: 'النفايات',
     mockTopicCSub: 'Déchets',
     mockTopicCQuote: 'الزبل كيطفر والريحة قادة فالزنقة.',
-    footerCta: 'افتح مكتب الاستماع',
-    footerCtaBody:
-        'ابدأ من غرفة أخبار الدار البيضاء التجريبية، أو ادخل واكتب أول سؤال.',
+    footerCta: 'أعد الجواب إلى من سأل',
+    footerCtaBody: 'ادخل واكتب سؤالاً واحداً. يصل فقط إلى القراء الذين وافقوا.',
     loginTitle: 'دخول المكتب',
     loginLead: 'سألتم، فأجبنا.',
     forgotPassword: 'نسيت كلمة السر؟',
@@ -459,6 +586,126 @@ const ar: Record<CopyKey, string> = {
     deleteConfirmBody:
         'بعد الحذف تُزال البيانات نهائياً. أدخل كلمة السر للتأكيد.',
     cancel: 'إلغاء',
+    navHow: 'المسار',
+    navVoices: 'الأصوات',
+    navTrust: 'الثقة',
+    navFor: 'لمن',
+    menuOpen: 'القائمة',
+    menuClose: 'إغلاق القائمة',
+    skipToContent: 'تخطي إلى المحتوى',
+    welcomeSecondary: 'شاهد المسار',
+    sampleKicker: 'مثال توضيحي',
+    sampleNote:
+        'نماذج توضيحية أُعدّت لبيان كيفية تطوير اهتمامات المجتمع إلى مواضيع صحفية، وليست مشاركات حقيقية من القرّاء أو نتائج أبحاث موثقة.',
+    composedExamplesTitle: 'أمثلة مركّبة',
+    composedExamplesNote:
+        'نماذج توضيحية أُعدّت لبيان كيفية تطوير اهتمامات المجتمع إلى مواضيع صحفية، وليست مشاركات حقيقية من القرّاء أو نتائج أبحاث موثقة.',
+    sampleVoiceLabel: 'نموذج توضيحي · رسالة صوتية',
+    sampleRetailLabel: 'نموذج توضيحي · اهتمام محلي',
+    sampleTextLabel: 'نموذج توضيحي · رسالة مكتوبة',
+    sampleMetricLabel: 'مؤشر افتراضي',
+    storyEyebrow: 'أمثلة مركّبة',
+    storyTitle: 'أمثلة مركّبة',
+    storyLead:
+        'بيان لكيفية تجميع ردود المجتمع آلياً في مواضيع متسقة مع اقتباسات مجهولة الهوية وترتيب تحريري واضح.',
+    mockQuestion: 'شنو ناقص فالحي هاد السيمانة؟',
+    mockDarija: 'الما مقطوع فسيدي مومن من الصباح.',
+    mockArabizi: 'l-ma m9to3 f zen9tna mn sbah',
+    mockFrenchLine: 'L’eau est coupée depuis ce matin.',
+    voicesTitle: 'رسائل متفرقة، همّ واحد',
+    voicesLead:
+        'نفس القلق يصل بالدارجة والعربيزي والفرنسية. المكتب يقرؤها كموضوع واحد، بعدد وبنسبة من الردود.',
+    voiceTagDarija: 'الدارجة',
+    voiceTagArabizi: 'العربيزي',
+    voiceTagFrench: 'الفرنسية',
+    trustOptIn: 'المشاركة باختيار',
+    trustOptInBody:
+        'القارئ ينضم بإرسال JOIN. STOP أو وقف أو arrêt تلغي الاشتراك فوراً. غرفة الأخبار تراسل فقط من وافق.',
+    trustQuotes: 'اقتباس بلا اسم',
+    trustQuotesBody:
+        'المكتب يعرض ما قيل والحي الذي جاء منه. أرقام الهاتف تبقى مخفية، والاقتباس مجهول.',
+    trustLawTitle: 'القانون المغربي 09-08',
+    trustLawBody:
+        'يُحفظ وقت الموافقة وفق القانون المغربي 09-08. هذه الصفحة تصف هذه الممارسة، وهي ليست شهادة قانونية.',
+    whoNgo: 'المجتمع المدني',
+    whoNgoBody:
+        'الهيئات التي تتحدث أصلاً مع مجتمع يمكنها أن تسأل سؤالاً واضحاً وترى أي الهموم تتكرر، بكلام الناس أنفسهم.',
+    heroPhotoCaption:
+        'الدار البيضاء · تفاصيل يومية من أحياء تبدأ فيها قضايا الناس برسالة صوتية.',
+    heroPhotoBadge: 'تفاصيل يومية · الدار البيضاء',
+    heroAnnotation: 'من حديث الشارع إلى تحقيق صحفي منشور.',
+    storyPhotoCaption:
+        'نموذج توضيحي — رسالة صوتية حول استفسارات الخدمات العامة.',
+    storyShopCaption: 'نموذج توضيحي — نقاش تجاري محلي حول انقطاع المرافق.',
+    voicesConvergenceLabel: 'رسائل متفرقة تلتقي في أولوية صحفية واحدة',
+    communityVoicesSubtitle: 'ناس حقيقيون. هموم حقيقية. صحافة تستمع.',
+    voicesCardLocation: 'نموذج تحريري توضيحي',
+    voicesCardTime: 'مسار تجريبي للتحقيق',
+    humanMosaicTitle: 'فسيفساء الأصوات الإنسانية',
+    humanMosaicCaption:
+        'فسيفساء الأصوات الإنسانية: تشكيل بصري لوجوه مغربية يعبّر عن تنوع المجتمع وأصوات الناس التي يستمع إليها دليل نيوز.',
+    heroEyebrow: 'فسيفساء الأصوات الإنسانية',
+    heroHeadlineLine1: 'ألف صوت.',
+    heroHeadlineLine2: 'قصة واحدة مشتركة.',
+    brandStatementAr: 'سألتم، فأجبنا',
+    tagline: 'ناس حقيقيون. هموم حقيقية. صحافة تستمع.',
+    heroBody:
+        'يربط دليل نيوز بين القضايا التي يشاركها الناس عبر واتساب والصحفيين القادرين على التحقيق فيها — بالدارجة، والعربيزي، والعربية، والفرنسية.',
+    heroCtaPrimary: 'اطرح قضية للمتابعة',
+    heroCtaSecondary: 'كيف تعمل المنصة',
+    howIntro2:
+        'يساعد دليل نيوز غرف الأخبار على الاستماع الواسع، وإدراك الاهتمامات المشتركة، وتحديد الأسئلة الجديرة بالتحقيق. تبدأ العملية من المجتمع وتستمر حتى يعود العمل الصحفي بنتائج ملموسة.',
+    step1Title: 'اطرح السؤال',
+    step1Body: 'تطرح غرفة الأخبار سؤالاً على القراء الذين اختاروا المشاركة.',
+    step2Title: 'استمع',
+    step2Body: 'يجيب الناس بكلماتهم الخاصة، عبر رسائل نصية أو تسجيلات صوتية.',
+    step3Title: 'افهم السياق',
+    step3Body: 'تتجمع الاهتمامات المتشابهة عبر مختلف اللغات والتعبيرات.',
+    step4Title: 'حدد الأولوية',
+    step4Body: 'يساعد المجتمع في الإشارة إلى القضايا التي تستحق اهتماماً أعمق.',
+    step5Title: 'حقّق وأجب',
+    step5Body:
+        'يتحقق الصحفيون من الوقائع، ينجزون التحقيق، ويشاركون العمل المنشور.',
+    examplesTitle: 'كلمات مختلفة. همّ مشترك.',
+    examplesIntro:
+        'قد يبدو الاهتمام مختلفاً بالدارجة، أو يُكتب بالعربيزي، أو يُعبَّر عنه بالفرنسية. ما يهم هو إدراك التقاء هذه الأصوات حول نفس القضية الأساسية.',
+    examplesDisclosure:
+        'فيما يلي نموذج توضيحي يبين كيف يمكن لغرفة الأخبار ربط ردود متشابهة بموضوع للتحقيق. هذه ليست مشاركات حقيقية لقرّاء ولا نتائج بحث.',
+    examplesBadge: 'نموذج توضيحي · ليست مشاركات حقيقية',
+    examplesTopic: 'انقطاع الماء في الحي',
+    examplesOutcomeLabel: 'قضية واحدة تستحق التحقيق',
+    examplesOutcomeText:
+        'يمكن لغرفة الأخبار التحقيق في انقطاع المياه المبلّغ عنه، والتحقق من الوقائع، وطلب إيضاحات من مزود الخدمة المعني.',
+    trustSectionTitle: 'الاستماع يعني احترام أصحاب الكلمة.',
+    trustIntro:
+        'صوت المجتمع ليس مجرد بيانات، بل هو ملك لأشخاص يستحقون معرفة كيف ستُستخدم مشاركاتهم. بُني دليل نيوز على المشاركة الطوعية، والخيارات الواضحة، والتعامل المسؤول مع الردود. والهدف هو مساعدة الصحافة على فهم مجتمعاتها دون المساس بكرامة الناس أو خصوصيتهم.',
+    trustPrinciple1Title: 'مشاركة طوعية باختيار',
+    trustPrinciple1Body:
+        'يختار القراء المشاركة بمحض إرادتهم ويمكنهم إلغاء الاشتراك في أي وقت عبر الكلمات المدعومة (STOP، وقف، arrêt).',
+    trustPrinciple2Title: 'خصوصية هادفة ومحمية',
+    trustPrinciple2Body:
+        'تظل المعرّفات الشخصية وأرقام الهواتف مشفرة ومحمية، ولا يُستخدم سوى القدر الضروري من المعلومات للهدف الصحفي المحدد.',
+    trustPrinciple3Title: 'تحقيق مدقق، لا افتراضات',
+    trustPrinciple3Body:
+        'ردود المجتمع ترشد الصحفيين نحو القضايا المهمة، لكنها لا تغني عن التحقق الميداني، وجمع الأدلة، والتحقيق المهني المستقل.',
+    audienceNewsroomsTitle: 'لغرف الأخبار — استمع لما وراء العناوين العاجلة.',
+    audienceNewsroomsBody:
+        'اكتشف الاهتمامات المتكررة، وافهم كيف يصفها الناس بكلماتهم، واعثر على نقاط انطلاق قوية لتحقيقاتك الصحفية.',
+    audienceCivicTitle: 'للمجتمع المدني — استوعب ما يطرحه الناس.',
+    audienceCivicBody:
+        'تنظيم الملاحظات المجتمعية للمساعدة في رصد القضايا الجديرة بالاهتمام، حيثما تدعم المنصة هذا العمل.',
+    audienceFundersTitle: 'للداعمين والشركاء — اجعل الاستماع أكثر أثراً.',
+    audienceFundersBody:
+        'افهم كيف يمكن للتفاعل المجتمعي إثراء العمل الصحفي ومساعدة غرف الأخبار على إعادة نتائج التحقيق لجمهورها.',
+    closeEyebrow: 'فسيفساء الأصوات الإنسانية',
+    closeHeadline: 'تبدأ القصة حين يستمع أحد.',
+    closeBody:
+        'اطرح سؤالاً أفضل. استمع لما يهم الناس. وتابع القصة حتى تصل إلى إجابة.',
+    closeBrandStatement: 'سألتم، فأجبنا',
+    closeCtaPrimary: 'افتح المكتب',
+    closeCtaSecondary: 'تسجيل الدخول',
+    footerBrand:
+        'دليل نيوز · فسيفساء الأصوات الإنسانية · ميديا بيلدرز × ليونز جيك',
 };
 
 const fr: Record<CopyKey, string> = {
@@ -619,9 +866,9 @@ const fr: Record<CopyKey, string> = {
     whoNewsrooms: 'Rédactions',
     whoNewsroomsBody:
         'Un bureau d’écoute pour les journalistes qui veulent les mots du quartier, pas le résumé d’un sondeur.',
-    whoFunders: 'ONG et bailleurs',
+    whoFunders: 'Bailleurs',
     whoFundersBody:
-        'Voyez la portée, les notes vocales, et si l’article est revenu vers celles et ceux qui ont parlé.',
+        'Voyez si une rédaction a touché des gens, entendu des notes vocales, et renvoyé l’article à celles et ceux qui ont participé.',
     privacyTitle: 'Le consentement, puis l’écoute',
     mockWaTitle: 'Sur le téléphone du lecteur',
     mockReader: 'Lecteur',
@@ -640,9 +887,9 @@ const fr: Record<CopyKey, string> = {
     mockTopicC: 'Déchets',
     mockTopicCSub: 'النفايات',
     mockTopicCQuote: 'Les bennes débordent et l’odeur reste dans la ruelle.',
-    footerCta: 'Ouvrir le bureau d’écoute',
+    footerCta: 'Ramenez la réponse',
     footerCtaBody:
-        'Partez de la rédaction démo de Casablanca, ou connectez-vous et écrivez la première question.',
+        'Connectez-vous et écrivez une question. Elle part uniquement vers les lecteurs inscrits.',
     loginTitle: 'Entrer dans le bureau',
     loginLead: 'Vous avez demandé, nous avons répondu.',
     forgotPassword: 'Mot de passe oublié ?',
@@ -695,6 +942,138 @@ const fr: Record<CopyKey, string> = {
     deleteConfirmBody:
         'Une fois le compte supprimé, ses données disparaissent. Saisissez votre mot de passe pour confirmer.',
     cancel: 'Annuler',
+    navHow: 'Parcours',
+    navVoices: 'Voix',
+    navTrust: 'Confiance',
+    navFor: 'Pour qui',
+    menuOpen: 'Menu',
+    menuClose: 'Fermer le menu',
+    skipToContent: 'Aller au contenu',
+    welcomeSecondary: 'Voir le parcours',
+    sampleKicker: 'Exemple illustratif',
+    sampleNote:
+        'Exemples illustratifs créés pour démontrer comment les préoccupations citoyennes peuvent être développées en sujets journalistiques. Il ne s’agit pas de soumissions réelles de lecteurs ni de résultats de recherche.',
+    composedExamplesTitle: 'Exemples composés',
+    composedExamplesNote:
+        'Exemples illustratifs créés pour démontrer comment les préoccupations citoyennes peuvent être développées en sujets journalistiques. Il ne s’agit pas de soumissions réelles de lecteurs ni de résultats de recherche.',
+    sampleVoiceLabel: 'Scénario illustratif · Dépêche audio',
+    sampleRetailLabel: 'Scénario illustratif · Commerce local',
+    sampleTextLabel: 'Scénario illustratif · Dépêche écrite',
+    sampleMetricLabel: 'Indice indicatif',
+    storyEyebrow: 'Exemples composés',
+    storyTitle: 'Exemples composés',
+    storyLead:
+        'Démonstration de la façon dont les réponses citoyennes se regroupent en sujets structurés avec des extraits anonymisés et une hiérarchisation éditoriale.',
+    mockQuestion: 'Qu’est-ce qui manque dans votre quartier cette semaine ?',
+    mockDarija: 'الما مقطوع فسيدي مومن من الصباح.',
+    mockArabizi: 'l-ma m9to3 f zen9tna mn sbah',
+    mockFrenchLine: 'L’eau est coupée depuis ce matin.',
+    voicesTitle: 'Des messages séparés, une préoccupation commune',
+    voicesLead:
+        'La même inquiétude arrive en darija, en arabizi et en français. Le bureau les lit comme un seul sujet, avec un compte et une part des réponses.',
+    voiceTagDarija: 'Darija',
+    voiceTagArabizi: 'Arabizi',
+    voiceTagFrench: 'Français',
+    trustOptIn: 'Ils choisissent de participer',
+    trustOptInBody:
+        'Un lecteur s’inscrit en envoyant JOIN. STOP, وقف ou arrêt le retire tout de suite. La rédaction n’écrit qu’aux personnes qui ont accepté.',
+    trustQuotes: 'Une citation, pas un nom',
+    trustQuotesBody:
+        'Le bureau montre ce qui a été dit et le quartier d’où cela vient. Les numéros restent masqués. La citation est anonyme.',
+    trustLawTitle: 'Loi marocaine 09-08',
+    trustLawBody:
+        'L’heure du consentement est conservée au titre de la loi marocaine 09-08. Cette page décrit cette pratique. Ce n’est pas une certification juridique.',
+    whoNgo: 'Société civile',
+    whoNgoBody:
+        'Les organisations qui parlent déjà avec une communauté peuvent poser une question claire et voir quelles préoccupations reviennent, dans les mots des gens.',
+    heroPhotoCaption:
+        'Casablanca · La vie quotidienne d’un quartier où les préoccupations citoyennes commencent par une note vocale.',
+    heroPhotoBadge: 'Vie quotidienne · Casablanca',
+    heroAnnotation:
+        'De la conversation de quartier à l’enquête journalistique publiée.',
+    storyPhotoCaption:
+        'Scénario illustratif — Note vocale concernant les services municipaux.',
+    storyShopCaption:
+        'Scénario illustratif — Échange commercial local sur les coupures d’eau.',
+    voicesConvergenceLabel:
+        'Des messages distincts convergent vers une priorité journalistique',
+    communityVoicesSubtitle:
+        'De vraies personnes. De vraies préoccupations. Un journalisme à l’écoute.',
+    voicesCardLocation: 'Scénario éditorial illustratif',
+    voicesCardTime: 'Cycle de démonstration',
+    humanMosaicTitle: 'La Mosaïque Humaine',
+    humanMosaicCaption:
+        'La Mosaïque Humaine : une composition éditoriale de visages marocains illustrant la diversité des voix citoyennes écoutées par Dalil News.',
+    heroEyebrow: 'LA MOSAÏQUE HUMAINE',
+    heroHeadlineLine1: 'Mille voix.',
+    heroHeadlineLine2: 'Une histoire commune.',
+    brandStatementAr: 'سألتم، فأجبنا',
+    tagline:
+        'De vraies personnes. De vraies préoccupations. Un journalisme à l’écoute.',
+    heroBody:
+        'Dalil News connecte les préoccupations partagées sur WhatsApp aux journalistes capables d’enquêter — en darija, arabizi, arabe et français.',
+    heroCtaPrimary: 'Lancer une question',
+    heroCtaSecondary: 'Comment ça fonctionne',
+    howIntro2:
+        'Dalil News aide les rédactions à écouter à grande échelle, à identifier les préoccupations partagées et à repérer les questions qui méritent une enquête. Le processus commence avec la communauté et se poursuit jusqu’à ce que le reportage apporte des réponses claires.',
+    step1Title: 'Poser la question',
+    step1Body:
+        'Une rédaction pose une question aux lecteurs qui ont choisi de participer.',
+    step2Title: 'Écouter',
+    step2Body:
+        'Les citoyens répondent avec leurs propres mots, par message texte ou note vocale.',
+    step3Title: 'Comprendre',
+    step3Body:
+        'Les préoccupations similaires sont regroupées à travers les langues et expressions.',
+    step4Title: 'Prioriser',
+    step4Body:
+        'La communauté peut aider à signaler les sujets qui méritent une attention particulière.',
+    step5Title: 'Enquêter et répondre',
+    step5Body:
+        'Les journalistes vérifient les faits, réalisent le reportage et partagent l’article publié.',
+    examplesTitle: 'Des mots différents. Une préoccupation commune.',
+    examplesIntro:
+        'Une préoccupation peut s’exprimer différemment en darija, s’écrire en arabizi ou être formulée en français. L’essentiel est de comprendre quand ces voix convergent vers un même enjeu fondamental.',
+    examplesDisclosure:
+        'Ce qui suit est un exemple illustratif montrant comment une rédaction peut relier des réponses similaires à un sujet d’enquête. Il ne s’agit pas de soumissions réelles de lecteurs ni de résultats de recherche.',
+    examplesBadge: 'EXEMPLE ILLUSTRATIF · SOUMISSIONS NON RÉELLES',
+    examplesTopic: 'Coupures d’eau dans le quartier',
+    examplesOutcomeLabel: 'Une préoccupation à enquêter',
+    examplesOutcomeText:
+        'Une rédaction pourrait enquêter sur l’interruption d’eau signalée, vérifier les faits et demander des explications au fournisseur de services concerné.',
+    trustSectionTitle: 'Écouter signifie respecter ceux qui s’expriment.',
+    trustIntro:
+        'La parole d’une communauté n’est pas une simple donnée. Elle appartient à une personne qui mérite de savoir comment sa contribution sera utilisée. Dalil News repose sur la participation volontaire, des choix clairs et le traitement responsable des réponses. L’objectif est d’aider le journalisme à comprendre les communautés sans compromettre leur dignité ni leur vie privée.',
+    trustPrinciple1Title: 'Participation par choix',
+    trustPrinciple1Body:
+        'Les lecteurs choisissent de participer et peuvent se désinscrire à tout moment (instructions JOIN, STOP, وقف, arrêt).',
+    trustPrinciple2Title: 'Confidentialité ciblée',
+    trustPrinciple2Body:
+        'Les identifiants personnels sont protégés et seules les informations nécessaires à l’objectif défini sont utilisées.',
+    trustPrinciple3Title: 'Enquête rigoureuse, pas d’hypothèses',
+    trustPrinciple3Body:
+        'Les retours de la communauté orientent les journalistes vers un sujet. Ils ne remplacent pas la vérification des faits, les preuves et l’enquête indépendante.',
+    audienceNewsroomsTitle:
+        'Pour les rédactions — Écouter au-delà des gros titres.',
+    audienceNewsroomsBody:
+        'Découvrez les préoccupations récurrentes, comprenez comment les citoyens les décrivent et trouvez des angles solides pour vos enquêtes.',
+    audienceCivicTitle:
+        'Pour la société civile — Comprendre ce que les communautés expriment.',
+    audienceCivicBody:
+        'Structurez les retours citoyens pour identifier les enjeux majeurs, là où la plateforme soutient cette démarche.',
+    audienceFundersTitle:
+        'Pour les partenaires médias — Donner un impact réel à l’écoute.',
+    audienceFundersBody:
+        'Comprenez comment l’engagement communautaire nourrit le reportage et aide les rédactions à clore la boucle avec leur public.',
+    closeEyebrow: 'LA MOSAÏQUE HUMAINE',
+    closeHeadline: 'Une histoire commence quand quelqu’un écoute.',
+    closeBody:
+        'Posez une meilleure question. Écoutez ce qui compte. Suivez l’histoire jusqu’à la réponse.',
+    closeBrandStatement: 'سألتم، فأجبنا',
+    closeCtaPrimary: 'Ouvrir le bureau',
+    closeCtaSecondary: 'Se connecter',
+    footerBrand:
+        'Dalil News · La Mosaïque Humaine · Media Builders × LionsGeek',
 };
 
 const dictionaries: Record<Locale, Record<CopyKey, string>> = { ar, fr, en };

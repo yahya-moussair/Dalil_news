@@ -45,22 +45,22 @@ export default function CampaignIndex({
                             >
                                 <div>
                                     <div className="flex items-center gap-2">
-                                        <span className="font-medium">
+                                        <span className="font-bold text-ink text-base">
                                             {campaign.title}
                                         </span>
                                         <StatusPill status={campaign.status} />
                                         {campaign.has_test_data ? (
-                                            <span className="rounded-full bg-[oklch(0.94_0.04_85)] px-2 py-0.5 text-xs text-[oklch(0.35_0.06_60)]">
+                                            <span className="rounded-full bg-brass/20 border border-brass/40 px-2 py-0.5 font-mono text-xs font-semibold text-ink">
                                                 {t('demoData')}
                                             </span>
                                         ) : null}
                                     </div>
-                                    <p className="mt-1 text-sm text-muted-foreground">
+                                    <p className="mt-1 text-sm text-ink/75">
                                         {campaign.replies_count} {t('replies')}{' '}
                                         · {campaign.voice_count} {t('voice')}
                                     </p>
                                 </div>
-                                <span className="text-xs text-muted-foreground">
+                                <span className="text-xs font-mono text-ink/70">
                                     {formatWhen(campaign.sent_at, locale)}
                                 </span>
                             </Link>

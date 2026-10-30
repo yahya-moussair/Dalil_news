@@ -46,18 +46,18 @@ export default function ReplyBack({
             <Head title={t('article')} />
             <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 p-4 md:p-6">
                 <div>
-                    <h1 className="text-2xl font-semibold">
+                    <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink">
                         {t('youAskedAr')}
                     </h1>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm font-medium text-ink">
                         {t('youAsked')}
                     </p>
-                    <p className="mt-2 text-sm text-muted-foreground">
+                    <p className="mt-2 text-sm text-ink/80">
                         {t('replyLead')}
                     </p>
                 </div>
                 <CampaignNav campaignId={campaign.id} current="article" />
-                <p className="text-sm">
+                <p className="text-sm font-semibold text-ink">
                     {t('recipients')}: {recipients} · {t('estimatedCost')}{' '}
                     {money(cost_estimate, locale)}
                 </p>
@@ -117,8 +117,8 @@ export default function ReplyBack({
                                     className={fieldClass}
                                 />
                             </div>
-                            <div className="rounded-[1.6rem] border-8 border-[oklch(0.25_0.03_175)] bg-[oklch(0.94_0.02_150)] p-4 text-sm whitespace-pre-wrap text-foreground shadow-sm">
-                                <p className="mb-2 text-xs font-medium text-muted-foreground">
+                            <div className="rounded-[1.6rem] border-4 border-ink bg-paper p-4 text-sm whitespace-pre-wrap text-ink shadow-sm">
+                                <p className="mb-2 font-mono text-xs font-bold uppercase tracking-wider text-ink">
                                     {t('preview')}
                                 </p>
                                 {preview}

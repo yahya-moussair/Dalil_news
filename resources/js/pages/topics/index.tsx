@@ -66,11 +66,11 @@ export default function Topics({
             <div className="flex flex-col gap-6 p-4 md:p-6">
                 <div className="flex flex-wrap items-end justify-between gap-3">
                     <div>
-                        <h1 className="text-2xl font-semibold">
+                        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink">
                             {campaign.title}
                         </h1>
-                        <p className="mt-1 text-sm text-muted-foreground">
-                            {t('topicsLead')} · {total} {t('replies')}
+                        <p className="mt-1 text-sm text-ink/80">
+                            {t('topicsLead')} · <span className="font-semibold text-ink">{total}</span> {t('replies')}
                         </p>
                     </div>
                     <Button
@@ -120,22 +120,22 @@ export default function Topics({
                         {visible.map((topic) => (
                             <article
                                 key={topic.id}
-                                className="rounded-2xl border border-s-4 border-s-primary bg-card p-5 shadow-sm"
+                                className="rounded-2xl border border-s-4 border-s-listen bg-card p-5 shadow-sm"
                             >
                                 <div className="flex flex-wrap items-start justify-between gap-3">
                                     <div>
-                                        <h2 className="text-xl font-semibold">
+                                        <h2 className="text-xl font-bold text-ink">
                                             {topic.label_ar}
                                         </h2>
-                                        <p className="text-sm text-muted-foreground">
+                                        <p className="text-sm font-medium text-ink/75">
                                             {topic.label_fr}
                                         </p>
                                     </div>
                                     <div className="text-end">
-                                        <p className="text-3xl font-semibold">
+                                        <p className="font-mono text-3xl font-bold text-ink">
                                             {topic.replies_count}
                                         </p>
-                                        <p className="text-xs text-muted-foreground">
+                                        <p className="font-mono text-xs font-semibold text-ink/70">
                                             {topic.share}% {t('share')}
                                         </p>
                                     </div>
@@ -144,7 +144,7 @@ export default function Topics({
                                     <Meter value={topic.share} />
                                 </div>
                                 {topic.summary ? (
-                                    <p className="mt-3 text-sm">
+                                    <p className="mt-3 text-sm text-ink/90">
                                         {topic.summary}
                                     </p>
                                 ) : null}
@@ -161,7 +161,7 @@ export default function Topics({
                                         </span>
                                     ))}
                                 </div>
-                                <h3 className="mt-4 text-sm font-medium">
+                                <h3 className="mt-4 font-mono text-xs font-bold uppercase tracking-wider text-ink">
                                     {t('quotes')}
                                 </h3>
                                 {topic.quotes.length === 0 ? (
@@ -276,7 +276,7 @@ export default function Topics({
                                         ))}
                                     </select>
                                 </div>
-                                <span className="pb-2 text-sm text-muted-foreground">
+                                <span className="pb-2 text-sm font-semibold text-ink">
                                     {t('mergeInto')}
                                 </span>
                                 <select

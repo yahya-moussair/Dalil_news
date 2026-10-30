@@ -49,13 +49,13 @@ export default function Metrics({
                     ))}
                 </div>
                 <section className="rounded-2xl border bg-card p-5 shadow-sm">
-                    <h2 className="font-medium">{t('neighborhoods')}</h2>
+                    <h2 className="text-base font-bold text-ink">{t('neighborhoods')}</h2>
                     <ul className="mt-4 flex flex-col gap-3">
                         {neighborhoods.map((row) => (
                             <li key={row.name}>
-                                <div className="flex justify-between text-sm">
+                                <div className="flex justify-between text-sm font-semibold text-ink">
                                     <span>{row.name}</span>
-                                    <span>{row.total}</span>
+                                    <span className="font-mono">{row.total}</span>
                                 </div>
                                 <div className="mt-1">
                                     <Meter value={row.total} max={max} />
@@ -66,21 +66,21 @@ export default function Metrics({
                 </section>
                 <section className="overflow-x-auto rounded-2xl border bg-card shadow-sm">
                     <table className="w-full text-sm">
-                        <thead className="bg-muted/40 text-muted-foreground">
+                        <thead className="border-b border-ink/10 bg-paper/60 text-ink">
                             <tr>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('title')}
                                 </th>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('replies')}
                                 </th>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('responseRate')}
                                 </th>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('readRate')}
                                 </th>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('daysToArticle')}
                                 </th>
                             </tr>
@@ -91,7 +91,7 @@ export default function Metrics({
                                     <td className="px-3 py-3">
                                         <Link
                                             href={`/campaigns/${campaign.id}`}
-                                            className="font-medium"
+                                            className="font-bold text-ink hover:text-listen"
                                         >
                                             {campaign.title}
                                         </Link>

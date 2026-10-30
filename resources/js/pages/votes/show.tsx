@@ -45,8 +45,8 @@ export default function Votes({
             <Head title={t('vote')} />
             <div className="flex flex-col gap-6 p-4 md:p-6">
                 <div>
-                    <h1 className="text-2xl font-semibold">{campaign.title}</h1>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                    <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink">{campaign.title}</h1>
+                    <p className="mt-1 text-sm text-ink/80">
                         {t('voteLead')}
                     </p>
                 </div>
@@ -58,7 +58,7 @@ export default function Votes({
                         form.post(`/campaigns/${campaign.id}/votes`);
                     }}
                 >
-                    <h2 className="font-medium">{t('pickTopics')}</h2>
+                    <h2 className="text-base font-bold text-ink">{t('pickTopics')}</h2>
                     <p className="text-xs text-muted-foreground">
                         {t('changeVote')}
                     </p>
@@ -85,14 +85,14 @@ export default function Votes({
                                             )
                                         }
                                     />
-                                    <span>
+                                    <span className="font-semibold text-ink">
                                         {topic.label_ar}
-                                        <span className="ms-2 text-xs text-muted-foreground">
+                                        <span className="ms-2 font-normal text-xs text-ink/70">
                                             {topic.label_fr}
                                         </span>
                                     </span>
                                 </span>
-                                <span className="text-sm">
+                                <span className="font-mono text-sm font-bold text-ink">
                                     {topic.replies_count}
                                 </span>
                             </label>
@@ -109,8 +109,8 @@ export default function Votes({
                 </form>
                 <section className="rounded-2xl border bg-card p-4 shadow-sm">
                     <div className="flex items-baseline justify-between">
-                        <h2 className="font-medium">{t('results')}</h2>
-                        <p className="text-sm text-muted-foreground">
+                        <h2 className="text-base font-bold text-ink">{t('results')}</h2>
+                        <p className="text-sm font-semibold text-ink">
                             {tally.total} {t('votesCast')}
                         </p>
                     </div>
@@ -120,14 +120,14 @@ export default function Votes({
                         <ul className="mt-4 flex flex-col gap-3">
                             {tally.rows.map((row, index) => (
                                 <li key={row.topic_id}>
-                                    <div className="flex justify-between text-sm">
+                                    <div className="flex justify-between text-sm font-semibold text-ink">
                                         <span>
                                             {index === 0
                                                 ? `${t('winner')} · `
                                                 : ''}
                                             {row.label_ar}
                                         </span>
-                                        <span>
+                                        <span className="font-mono">
                                             {row.count} · {row.share}%
                                         </span>
                                     </div>

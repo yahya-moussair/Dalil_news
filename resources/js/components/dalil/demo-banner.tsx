@@ -4,8 +4,13 @@ export function DemoBanner() {
     const { t } = useI18n();
 
     return (
-        <p className="rounded-xl border border-[oklch(0.82_0.1_85)] bg-[oklch(0.96_0.03_90)] px-3 py-2 text-sm text-[oklch(0.32_0.05_60)]">
-            {t('demoData')}
-        </p>
+        <div className="flex items-center gap-3 rounded-xl border border-brass/50 bg-brass/10 px-4 py-2.5 text-xs text-ink">
+            <span className="rounded bg-ink px-2 py-0.5 font-mono text-[10px] font-semibold tracking-wider text-paper uppercase">
+                DEMO
+            </span>
+            <p className="font-medium text-ink/90">
+                {t('demoData')}
+            </p>
+        </div>
     );
 }

@@ -9,13 +9,20 @@ export function AppSidebarHeader({
     breadcrumbs?: BreadcrumbItemType[];
 }) {
     return (
-        <header className="flex h-16 shrink-0 items-center justify-between gap-2 border-b border-sidebar-border/50 px-6 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 md:px-4">
-            <div className="flex items-center gap-2">
-                <SidebarTrigger className="-ms-1" />
+        <header className="sticky top-0 z-20 flex h-16 shrink-0 items-center justify-between gap-3 border-b border-ink/10 bg-sheet/90 px-4 backdrop-blur-md transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 md:px-6">
+            <div className="flex items-center gap-2.5">
+                <SidebarTrigger className="-ms-1 text-ink/80 hover:bg-ink/5 hover:text-ink focus-visible:outline-2 focus-visible:outline-brass" />
                 <Breadcrumbs breadcrumbs={breadcrumbs} />
             </div>
-            <div className="shrink-0">
-                <LocaleSwitcher />
+            <div className="flex shrink-0 items-center gap-3">
+                <span className="hidden items-center gap-1.5 rounded-full border border-brass/40 bg-brass/10 px-3 py-1 font-mono text-xs font-semibold text-ink sm:inline-flex">
+                    <span
+                        className="size-1.5 rounded-full bg-brass"
+                        aria-hidden="true"
+                    />
+                    سألتم، فأجبنا
+                </span>
+                <LocaleSwitcher tone="masthead" />
             </div>
         </header>
     );

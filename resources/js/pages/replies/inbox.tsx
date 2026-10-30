@@ -32,15 +32,15 @@ export default function Inbox({
             <div className="flex flex-col gap-6 p-4 md:p-6">
                 <div className="flex items-center justify-between gap-3">
                     <div>
-                        <h1 className="text-2xl font-semibold">
+                        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink">
                             {campaign.title}
                         </h1>
-                        <p className="mt-1 text-sm text-muted-foreground">
+                        <p className="mt-1 text-sm text-ink/80">
                             {t('inboxLead')}
                         </p>
                     </div>
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[oklch(0.4_0.08_155)] px-3 py-1 text-xs font-medium text-white">
-                        <span className="size-1.5 rounded-full bg-[oklch(0.86_0.12_145)]" />
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-listen px-3 py-1 text-xs font-semibold text-paper shadow-xs">
+                        <span className="size-1.5 rounded-full bg-brass" />
                         {t('live')}
                     </span>
                 </div>

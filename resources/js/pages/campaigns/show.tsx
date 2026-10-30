@@ -65,12 +65,12 @@ export default function CampaignShow({
                 <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
                         <div className="flex items-center gap-2">
-                            <h1 className="text-2xl font-semibold">
+                            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink">
                                 {campaign.title}
                             </h1>
                             <StatusPill status={campaign.status} />
                         </div>
-                        <p className="mt-2 max-w-2xl text-sm">
+                        <p className="mt-2 max-w-2xl text-sm text-ink/80">
                             {campaign.question}
                         </p>
                     </div>
@@ -94,31 +94,31 @@ export default function CampaignShow({
                         <Stat key={label} label={label} value={value} />
                     ))}
                 </div>
-                <section className="rounded-2xl border bg-card p-4">
-                    <h2 className="font-medium">{t('broadcasts')}</h2>
+                <section className="rounded-2xl border border-ink/10 bg-sheet p-5 shadow-xs">
+                    <h2 className="text-lg font-bold text-ink">{t('broadcasts')}</h2>
                     {broadcasts.length === 0 ? (
-                        <p className="mt-2 text-sm text-muted-foreground">—</p>
+                        <p className="mt-2 text-sm text-ink/60">—</p>
                     ) : (
                         <div className="mt-3 overflow-x-auto">
                             <table className="w-full text-sm">
-                                <thead className="text-muted-foreground">
+                                <thead className="border-b border-ink/10 bg-paper/60 text-ink">
                                     <tr>
-                                        <th className="py-2 text-start font-normal">
+                                        <th className="py-2.5 text-start font-semibold text-ink">
                                             {t('kind')}
                                         </th>
-                                        <th className="py-2 text-start font-normal">
+                                        <th className="py-2.5 text-start font-semibold text-ink">
                                             {t('sent')}
                                         </th>
-                                        <th className="py-2 text-start font-normal">
+                                        <th className="py-2.5 text-start font-semibold text-ink">
                                             {t('delivered')}
                                         </th>
-                                        <th className="py-2 text-start font-normal">
+                                        <th className="py-2.5 text-start font-semibold text-ink">
                                             {t('read')}
                                         </th>
-                                        <th className="py-2 text-start font-normal">
+                                        <th className="py-2.5 text-start font-semibold text-ink">
                                             {t('failed')}
                                         </th>
-                                        <th className="py-2 text-start font-normal">
+                                        <th className="py-2.5 text-start font-semibold text-ink">
                                             {t('cost')}
                                         </th>
                                     </tr>
@@ -159,7 +159,7 @@ export default function CampaignShow({
                             );
                         }}
                     >
-                        <h2 className="font-medium">{t('testSend')}</h2>
+                        <h2 className="text-base font-bold text-ink">{t('testSend')}</h2>
                         <p className="text-xs text-muted-foreground">
                             {t('testHint')}
                         </p>
@@ -191,7 +191,7 @@ export default function CampaignShow({
                                 );
                             }}
                         >
-                            <h2 className="font-medium">{t('simulate')}</h2>
+                            <h2 className="text-base font-bold text-ink">{t('simulate')}</h2>
                             <p className="text-xs text-muted-foreground">
                                 {t('simulateHint')}
                                 {drivers.transcription !== 'fake'

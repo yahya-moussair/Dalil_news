@@ -1,5 +1,4 @@
 import { Link, usePage } from '@inertiajs/react';
-import AppLogoIcon from '@/components/app-logo-icon';
 import { LocaleSwitcher } from '@/components/dalil/locale-switcher';
 import { useLocaleDirection } from '@/hooks/use-locale-direction';
 import { useI18n, type CopyKey } from '@/lib/i18n';
@@ -21,51 +20,148 @@ export default function AuthSimpleLayout({
 
     return (
         <div className="grid min-h-svh lg:grid-cols-2">
-            <aside className="dalil-zellige relative hidden flex-col justify-between bg-[oklch(0.28_0.045_175)] p-10 text-[oklch(0.97_0.01_90)] lg:flex">
-                <Link href={home()} className="flex items-center gap-3">
-                    <span className="flex size-10 items-center justify-center rounded-xl bg-[oklch(0.82_0.1_85)] text-[oklch(0.25_0.04_175)]">
-                        <AppLogoIcon className="size-6" />
-                    </span>
-                    <span className="text-lg font-semibold">Dalil News</span>
-                </Link>
-                <div className="max-w-md">
-                    <p className="text-sm text-[oklch(0.82_0.1_85)]">
-                        {t('welcomeKicker')}
+            {/* Editorial / Brand Showcase Panel */}
+            <aside className="relative hidden min-h-svh flex-col justify-between overflow-hidden bg-ink p-10 text-paper lg:flex">
+                {/* Signature Brand Rules at the Top */}
+                <div className="absolute inset-x-0 top-0 z-20">
+                    <div className="h-1 bg-brass" aria-hidden="true" />
+                    <div className="h-0.5 bg-listen" aria-hidden="true" />
+                </div>
+
+                {/* The Human Mosaic Visual Artwork Foundation */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/images/editorial/dalil_human_mosaic_hero.jpg"
+                        alt="The Human Mosaic: community voices gathered by Dalil News"
+                        className="h-full w-full object-cover object-[center_20%] opacity-40 mix-blend-luminosity"
+                    />
+                    <div
+                        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/90 to-ink/75"
+                        aria-hidden="true"
+                    />
+                    <div
+                        className="dalil-zellige absolute inset-0 opacity-40"
+                        aria-hidden="true"
+                    />
+                </div>
+
+                {/* Top Logo & Brand Link */}
+                <div className="relative z-10">
+                    <Link
+                        href={home()}
+                        className="flex w-fit items-center gap-3 transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass"
+                    >
+                        <img
+                            src="/brand/dalil-mark.png"
+                            alt=""
+                            width={398}
+                            height={328}
+                            className="h-11 w-auto"
+                        />
+                        <div>
+                            <span className="block text-xl font-bold tracking-tight text-paper">
+                                Dalil News
+                            </span>
+                            <span className="block font-mono text-[10px] text-brass tracking-wider uppercase">
+                                Media Builders
+                            </span>
+                        </div>
+                    </Link>
+                </div>
+
+                {/* Narrative: The Human Mosaic */}
+                <div className="relative z-10 my-auto max-w-lg py-8">
+                    <p className="font-mono text-xs font-semibold tracking-wider text-brass uppercase">
+                        [ {t('heroEyebrow')} ]
                     </p>
-                    <p className="mt-3 text-4xl leading-tight font-semibold">
-                        {t('welcomeTitle')}
+
+                    <p
+                        lang="ar"
+                        dir="rtl"
+                        className="mt-4 w-fit text-2xl font-bold tracking-tight text-brass sm:text-3xl"
+                    >
+                        <span className="border-b-2 border-brass pb-1">
+                            {t('brandStatementAr')}
+                        </span>
                     </p>
-                    <p className="mt-4 text-sm text-white/80">
+
+                    <h2 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-paper sm:text-4xl">
+                        <span className="block">{t('heroHeadlineLine1')}</span>
+                        <span className="mt-1 block text-brass">
+                            {t('heroHeadlineLine2')}
+                        </span>
+                    </h2>
+
+                    <p className="mt-4 text-sm font-semibold text-paper/95 sm:text-base">
+                        {t('tagline')}
+                    </p>
+
+                    <p className="mt-3 text-xs leading-relaxed text-paper/75 sm:text-sm">
                         {t('welcomeLead')}
                     </p>
                 </div>
-                <p className="text-xs text-white/60">{t('hackathon')}</p>
-            </aside>
-            <div className="relative flex flex-col justify-center bg-background px-6 py-16">
-                <div className="absolute end-4 top-4">
-                    <LocaleSwitcher />
+
+                {/* Footnote */}
+                <div className="relative z-10 flex items-center justify-between border-t border-paper/10 pt-4 font-mono text-[11px] text-paper/60">
+                    <span>{t('humanMosaicTitle')}</span>
+                    <span>Dalil News Desk · {t('hackathon')}</span>
                 </div>
-                <div className="mx-auto flex w-full max-w-sm flex-col gap-8">
-                    <div className="flex flex-col gap-3">
-                        <Link
-                            href={home()}
-                            className="flex items-center gap-2 font-semibold lg:hidden"
-                        >
-                            <span className="flex size-9 items-center justify-center rounded-xl bg-[oklch(0.32_0.05_175)] text-[oklch(0.82_0.1_85)]">
-                                <AppLogoIcon className="size-6" />
-                            </span>
-                            Dalil News
+            </aside>
+
+            {/* Authentication Form Side */}
+            <div className="relative flex min-h-svh flex-col justify-between bg-paper px-4 py-6 sm:px-8 sm:py-10 lg:px-12">
+                {/* Top Nav with Home link and LocaleSwitcher */}
+                <div className="flex items-center justify-between gap-3 border-b border-ink/10 pb-4">
+                    <Link
+                        href={home()}
+                        className="inline-flex items-center gap-1.5 text-xs font-medium text-ink/70 underline-offset-4 transition-colors hover:text-ink hover:underline hover:decoration-brass focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass"
+                    >
+                        <span aria-hidden="true">←</span>
+                        <span>{t('previous') === 'السابق' ? 'الرئيسية' : 'Dalil News'}</span>
+                    </Link>
+                    <LocaleSwitcher tone="masthead" />
+                </div>
+
+                {/* Form Card Container */}
+                <div className="mx-auto my-auto flex w-full max-w-md flex-col gap-6 py-6">
+                    {/* Mobile Brand Mark */}
+                    <div className="flex flex-col items-center text-center gap-2 lg:hidden">
+                        <Link href={home()}>
+                            <img
+                                src="/brand/dalil-mark.png"
+                                alt="Dalil News"
+                                width={398}
+                                height={328}
+                                className="h-12 w-auto"
+                            />
                         </Link>
-                        <div className="space-y-2">
-                            <h1 className="text-2xl font-semibold tracking-tight">
-                                {heading}
-                            </h1>
-                            <p className="text-sm text-muted-foreground">
-                                {lead}
-                            </p>
-                        </div>
+                        <span className="text-xl font-bold tracking-tight text-ink">
+                            Dalil News
+                        </span>
                     </div>
-                    {children}
+
+                    {/* Form Header */}
+                    <div className="space-y-1.5">
+                        <span className="font-mono text-xs font-semibold tracking-wider text-brass uppercase">
+                            «سألتم، فأجبنا»
+                        </span>
+                        <h1 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                            {heading}
+                        </h1>
+                        <p className="text-sm leading-relaxed text-ink/75">
+                            {lead}
+                        </p>
+                    </div>
+
+                    {/* Form Card */}
+                    <div className="rounded-2xl border border-ink/10 bg-sheet p-6 shadow-xs sm:p-8">
+                        {children}
+                    </div>
+                </div>
+
+                {/* Bottom Footer Note */}
+                <div className="border-t border-ink/10 pt-4 text-center font-mono text-[11px] text-ink/50">
+                    Dalil News · «سألتم، فأجبنا» · {t('hackathon')}
                 </div>
             </div>
         </div>

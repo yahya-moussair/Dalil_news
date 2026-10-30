@@ -96,7 +96,7 @@ export default function CreateCampaign({
                                 />
                             </div>
                             <fieldset className="grid gap-2">
-                                <legend className="text-sm font-medium">
+                                <legend className="text-sm font-bold text-ink">
                                     {t('neighborhoods')}
                                 </legend>
                                 <p className="text-xs text-muted-foreground">

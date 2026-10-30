@@ -45,8 +45,8 @@ export function CampaignNav({
                     href={item.href}
                     className={
                         item.key === current
-                            ? 'rounded-full bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground shadow-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none'
-                            : 'rounded-full border bg-card px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none'
+                            ? 'rounded-full bg-ink px-4 py-1.5 text-sm font-semibold text-paper shadow-xs ring-1 ring-brass/40 focus-visible:outline-2 focus-visible:outline-brass'
+                            : 'rounded-full border border-ink/15 bg-sheet px-4 py-1.5 text-sm font-medium text-ink transition-colors hover:border-ink/30 hover:bg-white focus-visible:outline-2 focus-visible:outline-brass'
                     }
                 >
                     {t(item.label)}

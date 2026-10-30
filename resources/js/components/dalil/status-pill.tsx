@@ -1,5 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import { useI18n } from '@/lib/i18n';
+import { cn } from '@/lib/utils';
 import type { CampaignStatus } from '@/types/dalil';
 
 export function StatusPill({ status }: { status: CampaignStatus }) {
@@ -11,18 +12,17 @@ export function StatusPill({ status }: { status: CampaignStatus }) {
         closed: t('statusClosed'),
     }[status];
 
+    const styles: Record<CampaignStatus, string> = {
+        sent: 'border-transparent bg-listen text-paper font-semibold',
+        voting: 'border-transparent bg-brass text-ink font-bold',
+        closed: 'border-ink/20 bg-ink/10 text-ink/80 font-medium',
+        draft: 'border-ink/20 bg-paper text-ink/80 font-medium',
+    };
+
     return (
         <Badge
-            variant={status === 'draft' ? 'secondary' : 'default'}
-            className={
-                status === 'voting'
-                    ? 'border-transparent bg-[oklch(0.82_0.12_85)] text-[oklch(0.25_0.04_60)]'
-                    : status === 'sent'
-                      ? 'border-transparent bg-[oklch(0.4_0.07_175)] text-white'
-                      : status === 'closed'
-                        ? 'border-transparent bg-[oklch(0.45_0.02_175)] text-white'
-                        : undefined
-            }
+            variant="outline"
+            className={cn('text-xs px-2.5 py-0.5 tracking-wide shadow-none', styles[status])}
         >
             {label}
         </Badge>

@@ -42,11 +42,11 @@ export default function Contacts({
                         </>
                     }
                 />
-                <p className="text-sm">
+                <p className="text-sm font-semibold text-ink">
                     {t('subscribed')}: {counts.subscribed} · {t('optedOut')}:{' '}
                     {counts.opted_out}
                 </p>
-                <label className="flex items-center gap-2 text-sm">
+                <label className="flex items-center gap-2 text-sm font-medium text-ink">
                     {t('filter')}
                     <select
                         value={filter}
@@ -69,24 +69,24 @@ export default function Contacts({
                 </label>
                 <div className="overflow-x-auto rounded-2xl border bg-card shadow-sm">
                     <table className="w-full text-sm">
-                        <thead className="bg-muted/50 text-muted-foreground">
+                        <thead className="border-b border-ink/10 bg-paper/60 text-ink">
                             <tr>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('displayNumber')}
                                 </th>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('neighborhood')}
                                 </th>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('channel')}
                                 </th>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('consent')}
                                 </th>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('source')}
                                 </th>
-                                <th className="px-3 py-2 text-start font-normal">
+                                <th className="px-3 py-2 text-start font-semibold text-ink">
                                     {t('actions')}
                                 </th>
                             </tr>
